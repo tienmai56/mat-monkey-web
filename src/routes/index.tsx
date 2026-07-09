@@ -589,7 +589,12 @@ function Footer() {
     <footer>
       <div className="mx-auto max-w-6xl px-6 py-10 flex flex-wrap items-center justify-between gap-4 text-sm text-muted-foreground">
         <Wordmark />
-        <span>Train with purpose.</span>
+        <div className="flex items-center gap-4">
+          <a href="/privacy" className="hover:text-foreground transition-colors">
+            Privacy
+          </a>
+          <span>Train with purpose.</span>
+        </div>
         <span>© {new Date().getFullYear()} Mat Mind</span>
       </div>
     </footer>
