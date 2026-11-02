@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SessionTokenRouteImport } from './routes/session.$token'
+import { Route as FriendTokenRouteImport } from './routes/friend.$token'
 
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
@@ -22,31 +24,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SessionTokenRoute = SessionTokenRouteImport.update({
+  id: '/session/$token',
+  path: '/session/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FriendTokenRoute = FriendTokenRouteImport.update({
+  id: '/friend/$token',
+  path: '/friend/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/friend/$token': typeof FriendTokenRoute
+  '/session/$token': typeof SessionTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/friend/$token': typeof FriendTokenRoute
+  '/session/$token': typeof SessionTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/privacy': typeof PrivacyRoute
+  '/friend/$token': typeof FriendTokenRoute
+  '/session/$token': typeof SessionTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy'
+  fullPaths: '/' | '/privacy' | '/friend/$token' | '/session/$token'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy'
-  id: '__root__' | '/' | '/privacy'
+  to: '/' | '/privacy' | '/friend/$token' | '/session/$token'
+  id: '__root__' | '/' | '/privacy' | '/friend/$token' | '/session/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrivacyRoute: typeof PrivacyRoute
+  FriendTokenRoute: typeof FriendTokenRoute
+  SessionTokenRoute: typeof SessionTokenRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/session/$token': {
+      id: '/session/$token'
+      path: '/session/$token'
+      fullPath: '/session/$token'
+      preLoaderRoute: typeof SessionTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/friend/$token': {
+      id: '/friend/$token'
+      path: '/friend/$token'
+      fullPath: '/friend/$token'
+      preLoaderRoute: typeof FriendTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrivacyRoute: PrivacyRoute,
+  FriendTokenRoute: FriendTokenRoute,
+  SessionTokenRoute: SessionTokenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
