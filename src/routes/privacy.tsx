@@ -67,7 +67,9 @@ function Footer() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="mb-4 font-display text-[22px] leading-tight tracking-[-0.02em] text-ink">{title}</h2>
+      <h2 className="mb-4 font-display text-[22px] leading-tight tracking-[-0.02em] text-ink">
+        {title}
+      </h2>
       {children}
     </section>
   );
