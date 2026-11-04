@@ -1,6 +1,5 @@
 import {
   CalendarDays,
-  ChevronRight,
   CircleUser,
   Clock,
   Images,
@@ -243,10 +242,6 @@ export function TrainingScreen() {
           ]}
           goingLabel="Sam & Marco"
         />
-        <div className="flex items-center justify-between rounded-[22px] bg-ink px-4 py-3 text-paper">
-          <span className="text-[13px] font-semibold">How was Thursday drilling?</span>
-          <ChevronRight className="h-4 w-4" aria-hidden />
-        </div>
       </div>
       <TabBar active="Training" />
     </>
