@@ -9,6 +9,10 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { APP_LINK_ORIGIN } from "../lib/app-links";
+import { previewCopy } from "../lib/invitation-preview";
+
+const appPreview = previewCopy("app");
 
 function NotFoundComponent() {
   return (
@@ -72,18 +76,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mat Mind - Trainning Planning & Reflection For Athletes" },
-      { name: "description", content: "Break down your training goals into quick daily tasks, track what's working, and even set fun bounties" },
+      { title: appPreview.title },
+      { name: "description", content: appPreview.description },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Mat Mind - Trainning Planning & Reflection For Athletes" },
-      { property: "og:description", content: "Break down your training goals into quick daily tasks, track what's working, and even set fun bounties" },
+      { property: "og:title", content: appPreview.title },
+      { property: "og:description", content: appPreview.description },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Mat Mind - Trainning Planning & Reflection For Athletes" },
-      { name: "twitter:description", content: "Break down your training goals into quick daily tasks, track what's working, and even set fun bounties" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f755f6c-6f76-4a5a-beca-68800291a174/id-preview-67b62517--f5db4d7c-36eb-4b21-bf32-c83353fd075a.lovable.app-1780526803568.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5f755f6c-6f76-4a5a-beca-68800291a174/id-preview-67b62517--f5db4d7c-36eb-4b21-bf32-c83353fd075a.lovable.app-1780526803568.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: appPreview.title },
+      { name: "twitter:description", content: appPreview.description },
+      { property: "og:image", content: `${APP_LINK_ORIGIN}/share/preview/app.png` },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:image", content: `${APP_LINK_ORIGIN}/share/preview/app.png` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

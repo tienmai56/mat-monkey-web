@@ -18,6 +18,7 @@ describe("Apple app association", () => {
     expect(data.applinks.details[0].components).toEqual([
       { "/": "/friend/*" },
       { "/": "/session/*" },
+      { "/": "/goal/*" },
     ]);
   });
   test("HEAD has JSON headers and no body; writes are rejected", async () => {
@@ -32,6 +33,7 @@ describe("Invitation destinations", () => {
     const token = "a1".repeat(32);
     expect(invitationAppURL("friend", token)).toBe(`matmind://friend/${token}`);
     expect(invitationAppURL("session", token)).toBe(`matmind://session/${token}`);
+    expect(invitationAppURL("goal", token)).toBe(`matmind://goal/${token}`);
     expect(APP_STORE_URL).toContain("id6767997652");
   });
   test("rejects incomplete, extra-path and markup tokens", () => {

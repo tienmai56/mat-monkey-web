@@ -1,34 +1,99 @@
-# iOS invitation links
+# Rich invitation links
 
-This change adds only the link endpoints and fallback pages for the Mat Mind iOS revamp. The existing homepage and privacy page content remain unchanged.
+Sharing a training session produces a Paper 3 / Coral 500 ticket with its title,
+date/time and timezone, gym, up to three confirmed participants (plus a remaining
+count), and up to three top-level focus names. Full notes and nested focus details
+stay inside the app. Friend and goal links use generic branded cards. Other pages
+inherit the branded app card from the root metadata.
 
-## Routes
+## Routes and behavior
 
-- `GET /.well-known/apple-app-site-association`: extensionless JSON response with no redirect. The existing custom server entry serves this before SSR; GET/HEAD are supported and other methods receive 405.
-- `/friend/<token>`: open a friendship invitation in the installed app, or install from the App Store.
-- `/session/<token>`: open a training invitation in the installed app, or install from the App Store.
+- `/.well-known/apple-app-site-association`: extensionless JSON for the configured
+  app ID, covering `/friend/*`, `/session/*`, and `/goal/*`. No redirect.
+- `/{friend|session|goal}/<token>`: complete Open Graph and Twitter card metadata in
+  the initial server response, followed by a responsive, script-free summary and
+  **Open in Mat Monkey** / App Store actions.
+- `/share/preview/{friend|session|goal}/<token>.png`: actual 1200 × 630 PNG generated
+  on Cloudflare Workers using bundled brand fonts and artwork. No remote fonts,
+  browser rendering service, client JavaScript, or service-role key is needed.
+- `/share/preview/app.png`: generic brand image for the homepage and other routes.
 
-The pages require a complete 64-character hexadecimal token before offering an app link. They do not redeem tokens, fetch session or account details, or add client analytics/token storage. Native authentication and backend authorization decide whether an invitation is valid. No training archive data is involved.
+Invitation pages and images use `no-store`, `noindex, nofollow`, `no-referrer`, and
+`nosniff`. Invalid, expired, revoked, cancelled, or unavailable invitations return
+404 without session content. Temporary backend/configuration errors return 503;
+the HTML still offers the native-app button for a structurally valid token.
+Preview requests never redeem a token, change RSVP, or create an invitation.
 
-Invitation responses have `Referrer-Policy: no-referrer`, `Cache-Control: no-store` and `X-Robots-Tag: noindex, nofollow`. They provide an explicit `matmind://` button and the App Store URL for app ID `6767997652`. After installing, users must return to the original link; there is no cross-install deferred deep linking.
+The custom server entry handles these routes before TanStack SSR. This avoids
+inherited homepage OG tags, deferred client loaders, and hydration requirements.
+The rest of the website still uses the existing router. The homepage's visible
+content and privacy page are not redesigned.
+
+## Backend configuration
+
+First apply `20261104130001_invitation_previews.sql` from **Calculated-Reps** to the
+iOS/social Supabase project. It adds the deliberately anonymous, read-only
+`invitation_preview(link_kind, token)` RPC. The complete active bearer token is its
+authorization. Existing tables retain their RLS and anonymous access restrictions.
+The token hash lookup uses the existing unique index.
+
+Set these **runtime bindings** in Lovable/Cloudflare:
+
+```text
+MAT_MONKEY_SUPABASE_URL=https://cmiqavyrazypmulrfezj.supabase.co
+MAT_MONKEY_SUPABASE_PUBLISHABLE_KEY=<that project's publishable or legacy anon key>
+```
+
+Do not reuse the landing site's unrelated `VITE_SUPABASE_*` values. Never configure
+a service-role key. For local development use an untracked `.dev.vars`. Database
+notes are decoded and filtered inside the RPC, so even the server response only
+contains the approved preview fields. Only `going` participants are shown;
+invited, declined, and organizer-blocked people are excluded.
 
 ## Publish and verify
 
-1. Confirm the AASA application identifier `9R4A2F8F94.com.tienmai.intentionaltrainingnotes` against the App Identifier Prefix and bundle ID in the production provisioning profile. The prefix comes from the configured development team in the iOS repository.
-2. Merge the reviewed change and publish it through the existing Lovable workflow. A preview build or GitHub merge is not proof that the production site has been republished.
-3. Verify `https://matmindbjj.lovable.app/.well-known/apple-app-site-association` returns HTTP 200 with JSON and no redirect; verify both invitation paths return the fallback pages.
-4. In the iOS project, retain `applinks:matmindbjj.lovable.app` in Associated Domains and regenerate the signing profile as needed. Install a signed build and test genuine server-issued links on a physical device, including expired tokens and sign-in continuation.
-5. Only after successful verification set `AppLinksEnabled` to true in the iOS Info.plist. The iOS project currently keeps this false to avoid distributing HTTPS links before hosting is ready.
+1. Apply the reviewed database migration to the social project and configure the
+   runtime bindings above.
+2. Confirm `9R4A2F8F94.com.tienmai.intentionaltrainingnotes` against the production
+   provisioning profile. Retain `applinks:matmindbjj.lovable.app` in iOS entitlements.
+3. Merge and publish this website through its existing Lovable workflow. GitHub
+   merge alone does not publish the website.
+4. Verify the live association URL returns JSON with no redirect and that a genuine
+   session token returns its own metadata and a valid PNG, using
+   `SESSION_SHARE_TOKEN=<active token> node scripts/verify-share-host.mjs` in the
+   iOS repository. Do not publish a fixture or sample token.
+5. On a physical iPhone, verify installed/uninstalled behavior, Messenger's in-app
+   browser fallback, profile setup/sign-in continuation, exact session navigation,
+   expired links, and cancellation. After installation users return to the original
+   invitation; this does not implement deferred linking across installation.
+6. Set **AppLinksEnabled=true** in iOS Info.plist after verification and ship the
+   signed build. The checked-in flag remains false until hosting is ready, so
+   existing installed builds continue creating custom-scheme links in the meantime.
 
-The existing privacy page describes the currently released local-only app. Review it against the new social/backend behavior before releasing v2; this link change does not rewrite that policy.
+Messaging apps control their card crops, description truncation, and caches.
+Saved session changes affect subsequent server requests, but a cached social card
+may not refresh immediately. A withdrawn card cannot erase details already seen
+by a recipient. Sharing the summary is intentional under the approved design.
 
 ## Checks
 
 ```sh
 bun install --frozen-lockfile --ignore-scripts
 bun run test:links
-bun run build
 bunx --no-install tsc --noEmit
+bun run build
+bun run test:share:worker
 ```
 
-The six focused tests cover association JSON/MIME/methods, token validation, correct app/install destinations, privacy headers, and isolation from the homepage/privacy responses. Also inspect the production build via `bun run preview` and request the actual HTTP endpoints before publication.
+`test:share:worker` launches a local fixture entry around the built Cloudflare
+worker. It renders real PNGs for all invitation types, checks long titles and
+empty focuses, verifies crawler HTML/native destinations/privacy headers, and
+checks unavailable and temporary-error responses. Fixture code is generated only
+inside ignored build output and never adds a fixture switch to production code.
+
+The database suite in Calculated-Reps tests the real RPC, including privilege
+boundaries, content filtering, expiry/revocation, cancellation, and no RSVP writes.
+Native XCTest still requires Xcode on macOS.
+
+The existing website privacy policy describes the older local-only release. Review
+it against the social app before shipping v2; this feature does not rewrite it.

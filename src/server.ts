@@ -1,5 +1,7 @@
 import "./lib/error-capture";
 import { ASSOCIATION_PATH, associationResponse, protectInvitationResponse } from "./lib/app-links";
+import { shareResponse } from "./lib/share-pages.server";
+import { previewEnvironment } from "./lib/invitation-preview";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
@@ -74,6 +76,8 @@ export default {
     // guessing by the asset host. The existing home/privacy routes remain intact.
     if (pathname === ASSOCIATION_PATH) return associationResponse(request.method);
     try {
+      const shared = await shareResponse(request, previewEnvironment(request, env));
+      if (shared) return shared;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return protectInvitationResponse(await normalizeCatastrophicSsrResponse(response), pathname);
