@@ -164,15 +164,7 @@ export function TapeLabel({
 export type WeekState = "done" | "missed" | "pending";
 
 /** Weekly friendship streak: each calendar week is one belt segment. */
-export function StreakBelt({
-  weeks,
-  hue,
-  label,
-}: {
-  weeks: WeekState[];
-  hue: Hue;
-  label: string;
-}) {
+export function StreakBelt({ weeks, hue, label }: { weeks: WeekState[]; hue: Hue; label: string }) {
   return (
     <div className="flex h-4 w-full items-stretch" role="img" aria-label={label}>
       {weeks.map((w, i) => {
@@ -193,9 +185,7 @@ export function StreakBelt({
               i > 0 && !joinedLeft && "ml-1",
             )}
           >
-            {w === "done" && (
-              <span className="absolute inset-y-0 right-[30%] w-[3px] bg-card/90" />
-            )}
+            {w === "done" && <span className="absolute inset-y-0 right-[30%] w-[3px] bg-card/90" />}
           </span>
         );
       })}
