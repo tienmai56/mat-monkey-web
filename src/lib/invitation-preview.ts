@@ -113,7 +113,7 @@ export async function lookupInvitation(
       headers,
       body: JSON.stringify({ link_kind: kind, token: token.toLowerCase() }),
       signal: AbortSignal.timeout(3500),
-      redirect: "error",
+      redirect: "manual",
     });
     if (!response.ok) return { state: "offline" };
     const raw: unknown = await response.json();
