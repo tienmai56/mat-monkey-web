@@ -44,6 +44,8 @@ MAT_MONKEY_SUPABASE_URL=https://cmiqavyrazypmulrfezj.supabase.co
 MAT_MONKEY_SUPABASE_PUBLISHABLE_KEY=<that project's publishable or legacy anon key>
 ```
 
+The custom SSR entry also bundles the same public project coordinates as server-only defaults, because managed hosting may omit Worker variables. Explicit runtime bindings or Node environment values override these defaults. This does not change bearer-token authorization or database RLS.
+
 The publishable key is intentionally public, like the one bundled in the iOS app.
 Do not reuse the landing site's unrelated `VITE_SUPABASE_*` values. Never configure
 a service-role key. For local development use an untracked `.dev.vars`. Database

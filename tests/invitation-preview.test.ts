@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { deploymentPreviewEnvironment } from "../src/lib/share-deployment.server";
 import { invitationHTML, shareResponse } from "../src/lib/share-pages.server";
 import {
   lookupInvitation,
@@ -57,6 +58,14 @@ describe("Session preview content", () => {
 });
 
 describe("Read-only lookup", () => {
+  test("managed hosting has bundled public defaults when bindings are absent", () => {
+    const configured = deploymentPreviewEnvironment(new Request("https://example.com"));
+    expect(configured.MAT_MONKEY_SUPABASE_URL).toBe("https://cmiqavyrazypmulrfezj.supabase.co");
+    expect(configured.MAT_MONKEY_SUPABASE_PUBLISHABLE_KEY?.startsWith("sb_publishable_")).toBe(
+      true,
+    );
+    expect(deploymentPreviewEnvironment(new Request("https://example.com"), env)).toEqual(env);
+  });
   test("uses request-scoped Nitro bindings and direct Worker bindings", () => {
     const request = new Request("https://example.com");
     Object.assign(request, { runtime: { cloudflare: { env } } });
