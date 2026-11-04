@@ -93,15 +93,8 @@ export function AvatarStack({
   return (
     <span className="flex">
       {people.map((p, i) => (
-        <Avatar
-          key={p.initials + i}
-          {...p}
-          size={size}
-          className={i === 0 ? "" : ""}
-        />
-      )).map((el, i) => (
-        <span key={i} style={{ marginLeft: i === 0 ? 0 : -size * 0.32 }}>
-          {el}
+        <span key={p.initials + i} style={{ marginLeft: i === 0 ? 0 : -size * 0.32 }}>
+          <Avatar {...p} size={size} />
         </span>
       ))}
     </span>
