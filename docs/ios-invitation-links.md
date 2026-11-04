@@ -31,7 +31,7 @@ content and privacy page are not redesigned.
 
 ## Backend configuration
 
-First apply `20261104130001_invitation_previews.sql` from **Calculated-Reps** to the
+First apply `20261104160002_invitation_previews.sql` from **Calculated-Reps** to the
 iOS/social Supabase project. It adds the deliberately anonymous, read-only
 `invitation_preview(link_kind, token)` RPC. The complete active bearer token is its
 authorization. Existing tables retain their RLS and anonymous access restrictions.
