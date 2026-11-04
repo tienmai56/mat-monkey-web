@@ -31,19 +31,20 @@ content and privacy page are not redesigned.
 
 ## Backend configuration
 
-First apply `20261104160002_invitation_previews.sql` from **Calculated-Reps** to the
+First apply `20261104085624_invitation_previews.sql` from **Calculated-Reps** to the
 iOS/social Supabase project. It adds the deliberately anonymous, read-only
 `invitation_preview(link_kind, token)` RPC. The complete active bearer token is its
 authorization. Existing tables retain their RLS and anonymous access restrictions.
 The token hash lookup uses the existing unique index.
 
-Set these **runtime bindings** in Lovable/Cloudflare:
+The Worker configuration supplies these **public runtime bindings** for the social project; deployment environments may override them:
 
 ```text
 MAT_MONKEY_SUPABASE_URL=https://cmiqavyrazypmulrfezj.supabase.co
 MAT_MONKEY_SUPABASE_PUBLISHABLE_KEY=<that project's publishable or legacy anon key>
 ```
 
+The publishable key is intentionally public, like the one bundled in the iOS app.
 Do not reuse the landing site's unrelated `VITE_SUPABASE_*` values. Never configure
 a service-role key. For local development use an untracked `.dev.vars`. Database
 notes are decoded and filtered inside the RPC, so even the server response only
