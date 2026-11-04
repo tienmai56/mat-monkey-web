@@ -152,11 +152,7 @@ function Hero() {
     <section id="top" className="overflow-hidden bg-paper-3">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-10 sm:px-6 md:grid-cols-[1.05fr_1fr] md:pb-28 md:pt-16">
         <div className="min-w-0">
-          <span className="inline-flex items-center gap-2 rounded-full bg-card px-3.5 py-1.5 text-[13px] font-semibold text-ink shadow-card">
-            <Users className="h-4 w-4 text-primary" aria-hidden />
-            The friendship-first BJJ app
-          </span>
-          <h1 className="mt-6 font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[76px]">
+          <h1 className="font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[76px]">
             More mat time.
             <br />
             <span className="text-primary">Better company.</span>
