@@ -75,7 +75,11 @@ export function Avatar({
         hueTint[hue],
         className,
       )}
-      style={{ width: size, height: size, fontSize: Math.round(size * 0.38) }}
+      style={{
+        width: size,
+        height: size,
+        fontSize: Math.round(size * (initials.length > 2 ? 0.3 : 0.38)),
+      }}
       aria-hidden
     >
       {initials}

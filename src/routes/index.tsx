@@ -160,7 +160,7 @@ function Hero() {
             <Users className="h-4 w-4 text-primary" aria-hidden />
             The friendship-first BJJ app
           </span>
-          <h1 className="mt-6 font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[80px]">
+          <h1 className="mt-6 font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[76px]">
             More mat time.
             <br />
             <span className="text-primary">Better company.</span>
@@ -193,11 +193,11 @@ function Hero() {
           >
             <TrainingScreen />
           </PhoneFrame>
-          <div className="absolute -left-4 top-24 z-20 hidden items-center gap-2 rounded-full bg-ink py-2 pl-2 pr-4 text-[13px] font-semibold text-paper shadow-float sm:flex lg:-left-24">
+          <div className="absolute -right-4 top-[58px] z-20 hidden items-center gap-2 rounded-full bg-ink py-2 pl-2 pr-4 text-[13px] font-semibold text-paper shadow-float sm:flex lg:-right-16">
             <Avatar initials="SO" hue="mint" size={26} className="ring-0" />
             Sam joined Saturday open mat
           </div>
-          <div className="absolute -right-4 bottom-28 z-20 hidden w-[230px] rounded-[22px] bg-card p-3.5 shadow-float sm:block lg:-right-20">
+          <div className="absolute -left-4 bottom-24 z-20 hidden w-[230px] rounded-[22px] bg-card p-3.5 shadow-float sm:block lg:-left-28">
             <div className="flex items-center gap-3">
               <TiedAvatars a="You" b="LK" hue="sun" size={32} />
               <div className="min-w-0">
