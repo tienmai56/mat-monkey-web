@@ -74,7 +74,7 @@ const NAV = [
 
 function Overline({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <p className={`text-[12px] font-bold uppercase tracking-[0.1em] text-coral-text ${className}`}>
+    <p className={`text-[14px] font-bold tracking-[0.01em] text-coral-text ${className}`}>
       {children}
     </p>
   );
