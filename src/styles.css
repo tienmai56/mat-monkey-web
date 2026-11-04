@@ -152,7 +152,10 @@
 /* Pill primary with the pressable 3px coral edge that sinks on press. */
 @utility btn-press {
   box-shadow: var(--shadow-press);
-  transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 140ms cubic-bezier(0.2, 0.8, 0.2, 1), background-color 140ms;
+  transition:
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 140ms;
   &:hover {
     background-color: #ff6f4f;
   }
@@ -165,7 +168,9 @@
 /* Ink-edged white pill used on coral grounds. */
 @utility btn-press-ink {
   box-shadow: 0 3px 0 var(--ink);
-  transition: transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    transform 140ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 140ms cubic-bezier(0.2, 0.8, 0.2, 1);
   &:active {
     transform: translateY(2px);
     box-shadow: 0 1px 0 var(--ink);
@@ -174,7 +179,11 @@
 
 /* 135deg hatch used for pending streak weeks and empty photo slots. */
 @utility hatch {
-  background-image: repeating-linear-gradient(135deg, rgba(29, 27, 24, 0.14) 0 2px, transparent 2px 7px);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(29, 27, 24, 0.14) 0 2px,
+    transparent 2px 7px
+  );
 }
 
 @utility tracking-display {
@@ -193,7 +202,12 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-heading);
     font-weight: 800;
     letter-spacing: -0.02em;
@@ -205,7 +219,9 @@
 
   :focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px var(--coral-tint), 0 0 0 1.5px #ff5c39;
+    box-shadow:
+      0 0 0 3px var(--coral-tint),
+      0 0 0 1.5px #ff5c39;
   }
 
   @media (prefers-reduced-motion: reduce) {

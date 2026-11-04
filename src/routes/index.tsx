@@ -166,9 +166,9 @@ function Hero() {
             <span className="text-primary">Better company.</span>
           </h1>
           <p className="mt-6 max-w-[34rem] text-[17px] leading-[1.5] text-ink-secondary sm:text-[19px]">
-            Plan sessions with the people you already train with, pick what you're working on,
-            and keep the good rounds with a photo or a note. Weekly friendship streaks keep the
-            crew showing up.
+            Plan sessions with the people you already train with, pick what you're working on, and
+            keep the good rounds with a photo or a note. Weekly friendship streaks keep the crew
+            showing up.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <AppStoreButton />
@@ -235,8 +235,8 @@ function PhotoSection() {
             </h2>
           </div>
           <p className="max-w-md text-[17px] leading-[1.5] text-ink-secondary md:justify-self-end">
-            The early-morning drillers, the open-mat regulars, the partner who always asks for
-            one more round. Mat Monkey is for the people you already roll with.
+            The early-morning drillers, the open-mat regulars, the partner who always asks for one
+            more round. Mat Monkey is for the people you already roll with.
           </p>
         </div>
 
@@ -441,8 +441,8 @@ function HowItWorks() {
                   </TapeLabel>
                 </div>
                 <p className="mt-2.5 px-1 text-[13px] leading-snug text-ink">
-                  Finally hit the knee cut on <span className="font-semibold text-coral-text">@sam</span>.
-                  Twice.
+                  Finally hit the knee cut on{" "}
+                  <span className="font-semibold text-coral-text">@sam</span>. Twice.
                 </p>
               </div>
             </div>
@@ -491,7 +491,9 @@ function GoalsSection() {
             <p className="flex items-center gap-2 font-display text-[17px] font-extrabold tracking-[-0.015em] text-ink">
               <NotebookPen className="h-4 w-4" aria-hidden /> What are we working on?
             </p>
-            <p className="mt-1 text-[13px] text-ink-secondary">Pick from your goals, or add your own.</p>
+            <p className="mt-1 text-[13px] text-ink-secondary">
+              Pick from your goals, or add your own.
+            </p>
             <div className="mt-3 flex flex-wrap gap-2">
               <Chip selected>Knee cut</Chip>
               <Chip>
@@ -524,15 +526,24 @@ function GoalsSection() {
             role="img"
             aria-label="Goals screen on the Shared tab with two goals shared between friends"
           >
-            <p className="font-display text-[24px] font-extrabold tracking-[-0.03em] text-ink">Goals</p>
+            <p className="font-display text-[24px] font-extrabold tracking-[-0.03em] text-ink">
+              Goals
+            </p>
             <div className="mt-3 grid grid-cols-2 rounded-full bg-paper-2 p-1 text-[13px] font-bold">
               <span className="py-1.5 text-center text-ink-tertiary">Mine</span>
-              <span className="rounded-full bg-card py-1.5 text-center text-ink shadow-card">Shared</span>
+              <span className="rounded-full bg-card py-1.5 text-center text-ink shadow-card">
+                Shared
+              </span>
             </div>
             <div className="mt-4 space-y-3">
               {[
                 { t: "Single leg finishes", who: "Shared by Lena", b: "LK", hue: "sun" as const },
-                { t: "Escape mount without panic", who: "You & Sam", b: "SO", hue: "mint" as const },
+                {
+                  t: "Escape mount without panic",
+                  who: "You & Sam",
+                  b: "SO",
+                  hue: "mint" as const,
+                },
               ].map((g) => (
                 <div key={g.t} className="flex items-center gap-3 rounded-[18px] bg-paper p-3">
                   <TiedAvatars a="Me" b={g.b} hue={g.hue} size={28} />
@@ -559,9 +570,8 @@ function QrArt() {
   const cells: boolean[] = [];
   for (let y = 0; y < n; y++)
     for (let x = 0; x < n; x++) {
-      const finder =
-        (x < 5 && y < 5) || (x >= n - 5 && y < 5) || (x < 5 && y >= n - 5);
-      cells.push(finder ? false : ((x * 7 + y * 13 + x * y) % 5) < 2);
+      const finder = (x < 5 && y < 5) || (x >= n - 5 && y < 5) || (x < 5 && y >= n - 5);
+      cells.push(finder ? false : (x * 7 + y * 13 + x * y) % 5 < 2);
     }
   const Finder = ({ c }: { c: string }) => (
     <span className={`absolute ${c} grid h-[29%] w-[29%] place-items-center rounded-[6px] bg-ink`}>
@@ -589,8 +599,28 @@ function QrArt() {
   );
 }
 
-const LENA_WEEKS: WeekState[] = ["missed", "done", "done", "done", "done", "done", "done", "done", "done", "pending"];
-const SAM_WEEKS: WeekState[] = ["done", "done", "done", "done", "missed", "missed", "done", "pending"];
+const LENA_WEEKS: WeekState[] = [
+  "missed",
+  "done",
+  "done",
+  "done",
+  "done",
+  "done",
+  "done",
+  "done",
+  "done",
+  "pending",
+];
+const SAM_WEEKS: WeekState[] = [
+  "done",
+  "done",
+  "done",
+  "done",
+  "missed",
+  "missed",
+  "done",
+  "pending",
+];
 
 function FriendsSection() {
   return (
@@ -641,7 +671,11 @@ function FriendsSection() {
                 </div>
               </div>
               <div className="mt-6">
-                <StreakBelt hue="sun" weeks={LENA_WEEKS} label="Eight weeks in a row with Lena, this week still open" />
+                <StreakBelt
+                  hue="sun"
+                  weeks={LENA_WEEKS}
+                  label="Eight weeks in a row with Lena, this week still open"
+                />
                 <div className="mt-2 flex justify-between text-[11px] font-semibold text-ink-tertiary">
                   <span>10 weeks ago</span>
                   <span>This week</span>
@@ -660,7 +694,11 @@ function FriendsSection() {
                 </div>
               </div>
               <div className="mt-5">
-                <StreakBelt hue="mint" weeks={SAM_WEEKS} label="Streak with Sam: one week so far, best four weeks" />
+                <StreakBelt
+                  hue="mint"
+                  weeks={SAM_WEEKS}
+                  label="Streak with Sam: one week so far, best four weeks"
+                />
               </div>
               <p className="mt-4 text-[14px] text-ink-secondary">
                 Missed weeks are just bare mat. No guilt, no leaderboards.
@@ -676,7 +714,10 @@ function FriendsSection() {
             "No DMs or stranger matching",
             "No rankings",
           ].map((t) => (
-            <li key={t} className="rounded-full bg-card px-4 py-2 text-[14px] font-semibold text-ink shadow-card">
+            <li
+              key={t}
+              className="rounded-full bg-card px-4 py-2 text-[14px] font-semibold text-ink shadow-card"
+            >
               {t}
             </li>
           ))}
@@ -842,7 +883,10 @@ function Footer() {
           <LogoMark size={28} />
           <Wordmark className="text-[20px] text-ink" />
         </a>
-        <nav aria-label="Footer" className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px] font-semibold text-ink-secondary">
+        <nav
+          aria-label="Footer"
+          className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px] font-semibold text-ink-secondary"
+        >
           <a href="/privacy" className="py-2 hover:text-ink">
             Privacy
           </a>

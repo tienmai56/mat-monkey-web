@@ -98,8 +98,18 @@ export function SessionTicket({
       </div>
       <div className="relative w-0">
         <span className="absolute inset-y-3 left-0 border-l-2 border-dashed border-ink/15" />
-        <span className={cn("absolute -left-[7px] -top-[7px] h-[14px] w-[14px] rounded-full", notchClassName)} />
-        <span className={cn("absolute -bottom-[7px] -left-[7px] h-[14px] w-[14px] rounded-full", notchClassName)} />
+        <span
+          className={cn(
+            "absolute -left-[7px] -top-[7px] h-[14px] w-[14px] rounded-full",
+            notchClassName,
+          )}
+        />
+        <span
+          className={cn(
+            "absolute -bottom-[7px] -left-[7px] h-[14px] w-[14px] rounded-full",
+            notchClassName,
+          )}
+        />
       </div>
       <div className="min-w-0 flex-1 px-3.5 py-3">
         <p className="font-display text-[16px] font-extrabold leading-tight tracking-[-0.015em] text-ink">
@@ -202,11 +212,15 @@ export function TrainingScreen() {
         </span>
       </div>
       <div className="mx-4 mt-3 grid grid-cols-2 rounded-full bg-paper-2 p-1 text-[13px] font-bold">
-        <span className="rounded-full bg-card py-1.5 text-center text-ink shadow-card">Upcoming</span>
+        <span className="rounded-full bg-card py-1.5 text-center text-ink shadow-card">
+          Upcoming
+        </span>
         <span className="py-1.5 text-center text-ink-tertiary">Past</span>
       </div>
       <div className="flex-1 space-y-3 overflow-hidden px-4 pt-4">
-        <p className="font-display text-[15px] font-extrabold tracking-[-0.015em] text-ink">This week</p>
+        <p className="font-display text-[15px] font-extrabold tracking-[-0.015em] text-ink">
+          This week
+        </p>
         <SessionTicket
           day="SAT"
           date="14"
