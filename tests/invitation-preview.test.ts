@@ -84,7 +84,7 @@ describe("Read-only lookup", () => {
       expect(JSON.parse(options.body as string)).toEqual({ link_kind: "session", token });
       expect(new Headers(options.headers).get("apikey")).toBe("sb_publishable_example");
       expect(new Headers(options.headers).has("authorization")).toBe(false);
-      expect(options.redirect).toBe("error");
+      expect(options.redirect).toBe("manual");
       return Response.json(session);
     }) as typeof fetch;
     expect(await lookupInvitation("session", token.toUpperCase(), env, fetcher)).toEqual(active);

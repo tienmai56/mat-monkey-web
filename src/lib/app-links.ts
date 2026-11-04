@@ -54,6 +54,7 @@ export function protectInvitationResponse(response: Response, pathname: string):
   headers.set("Cache-Control", "no-store");
   headers.set("X-Robots-Tag", "noindex, nofollow");
   headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Mat-Monkey-Preview-Version", "20261104.2");
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
