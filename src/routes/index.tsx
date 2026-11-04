@@ -21,9 +21,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Toaster } from "@/components/ui/sonner";
-import { supabase } from "@/integrations/supabase/client";
-import { toast } from "sonner";
 import {
   AppStoreButton,
   Avatar,
@@ -710,73 +707,11 @@ function FAQ() {
   );
 }
 
-function UpdateNotify() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [done, setDone] = useState(false);
-
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const trimmed = email.trim();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(trimmed)) {
-      toast.error("That email doesn't look right.");
-      return;
-    }
-    setLoading(true);
-    const { error } = await supabase
-      .from("waitlist_signups")
-      .insert({ email: trimmed, source: "footer_waitlist" });
-    setLoading(false);
-    if (error && error.code !== "23505") {
-      toast.error("Something went wrong. Try again?");
-      return;
-    }
-    setDone(true);
-    setEmail("");
-    toast.success("You're on the list. See you on the mat.");
-  };
-
-  if (done) {
-    return (
-      <p className="flex items-center gap-2 text-[15px] font-semibold text-ink" role="status">
-        <CircleCheck className="h-5 w-5" aria-hidden /> You're on the list for the update.
-      </p>
-    );
-  }
-
-  return (
-    <form onSubmit={onSubmit} className="w-full max-w-md">
-      <label htmlFor="notify-email" className="text-[14px] font-semibold text-ink">
-        Want a heads-up when the friends update lands?
-      </label>
-      <div className="mt-2 flex flex-col gap-2 sm:flex-row">
-        <input
-          id="notify-email"
-          type="email"
-          required
-          autoComplete="email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="min-h-12 w-full min-w-0 rounded-[14px] border-[1.5px] border-ink/15 bg-card px-4 text-[15px] text-ink placeholder:text-ink-tertiary"
-        />
-        <button
-          type="submit"
-          disabled={loading}
-          className="min-h-12 shrink-0 rounded-full bg-ink px-6 font-display text-[15px] font-extrabold text-paper transition-transform active:translate-y-[2px] disabled:opacity-60"
-        >
-          {loading ? "Sending…" : "Notify me"}
-        </button>
-      </div>
-    </form>
-  );
-}
-
 function ClosingCta() {
   return (
     <section id="get" className="scroll-mt-16 bg-paper px-4 pb-20 sm:px-6 md:pb-28">
-      <div className="mx-auto grid max-w-6xl gap-10 overflow-hidden rounded-[32px] bg-primary px-6 py-12 sm:px-10 md:grid-cols-[1.2fr_0.8fr] md:items-center md:py-16 lg:px-16">
-        <div className="min-w-0">
+      <div className="mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-primary px-6 py-12 text-center sm:px-10 md:py-20 lg:px-16">
+        <div className="mx-auto flex min-w-0 max-w-2xl flex-col items-center">
           <LogoMark size={56} mono />
           <h2 className="mt-6 font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">
             Rolls are better with friends.
@@ -787,9 +722,6 @@ function ClosingCta() {
           <div className="mt-8">
             <AppStoreButton variant="white" />
           </div>
-        </div>
-        <div className="rounded-[24px] bg-coral-tint p-6">
-          <UpdateNotify />
         </div>
       </div>
     </section>
@@ -824,7 +756,6 @@ function Footer() {
 function Landing() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground">
-      <Toaster />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-card focus:px-4 focus:py-2"
