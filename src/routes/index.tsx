@@ -193,13 +193,13 @@ function Hero() {
           >
             <TrainingScreen />
           </PhoneFrame>
-          <div className="absolute -right-4 top-[58px] z-20 hidden items-center gap-2 rounded-full bg-ink py-2 pl-2 pr-4 text-[13px] font-semibold text-paper shadow-float sm:flex lg:-right-16">
+          <div className="absolute -right-4 -top-5 z-20 hidden items-center gap-2 rounded-full bg-ink py-2 pl-2 pr-4 text-[13px] font-semibold text-paper shadow-float sm:flex lg:-right-16">
             <Avatar initials="SO" hue="mint" size={26} className="ring-0" />
             Sam joined Saturday open mat
           </div>
           <div className="absolute -left-4 bottom-24 z-20 hidden w-[230px] rounded-[22px] bg-card p-3.5 shadow-float sm:block lg:-left-28">
             <div className="flex items-center gap-3">
-              <TiedAvatars a="You" b="LK" hue="sun" size={32} />
+              <TiedAvatars a="Me" b="LK" hue="sun" size={32} />
               <div className="min-w-0">
                 <p className="font-display text-[15px] font-extrabold leading-tight tracking-[-0.015em] text-ink">
                   8 weeks with Lena
@@ -535,7 +535,7 @@ function GoalsSection() {
                 { t: "Escape mount without panic", who: "You & Sam", b: "SO", hue: "mint" as const },
               ].map((g) => (
                 <div key={g.t} className="flex items-center gap-3 rounded-[18px] bg-paper p-3">
-                  <TiedAvatars a="You" b={g.b} hue={g.hue} size={28} />
+                  <TiedAvatars a="Me" b={g.b} hue={g.hue} size={28} />
                   <div className="min-w-0">
                     <p className="text-[14px] font-semibold leading-snug text-ink">{g.t}</p>
                     <p className="text-[12px] text-ink-secondary">{g.who}</p>
@@ -629,7 +629,7 @@ function FriendsSection() {
           <div className="grid gap-5">
             <div className="rounded-[24px] bg-card p-6 shadow-card sm:p-7">
               <div className="flex items-center gap-4">
-                <TiedAvatars a="You" b="LK" hue="sun" size={48} />
+                <TiedAvatars a="Me" b="LK" hue="sun" size={48} />
                 <div className="min-w-0">
                   <p className="font-display text-[24px] font-extrabold leading-tight tracking-[-0.025em] text-ink">
                     8 weeks with Lena
@@ -651,7 +651,7 @@ function FriendsSection() {
 
             <div className="rounded-[24px] bg-mint-tint p-6 sm:p-7">
               <div className="flex items-center gap-4">
-                <TiedAvatars a="You" b="SO" hue="mint" size={44} />
+                <TiedAvatars a="Me" b="SO" hue="mint" size={44} />
                 <div className="min-w-0">
                   <p className="font-display text-[20px] font-extrabold leading-tight tracking-[-0.02em] text-ink">
                     Pick it back up with Sam
