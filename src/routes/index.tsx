@@ -189,7 +189,7 @@ function Hero() {
         <div className="relative mx-auto">
           <PhoneFrame
             label="Mat Monkey Training tab showing a Saturday open mat ticket with Lena, Sam and Priya going, the gym, and what they're working on"
-            className="relative z-10 rotate-0 lg:rotate-[2deg]"
+            className="relative z-10"
           >
             <TrainingScreen />
           </PhoneFrame>
