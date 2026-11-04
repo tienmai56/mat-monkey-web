@@ -36,11 +36,7 @@ import {
   type WeekState,
 } from "@/components/home/brand";
 import { PhoneFrame, SessionTicket, TrainingScreen } from "@/components/home/phone";
-import photoCoach from "@/assets/photos/coach-help.jpg.asset.json";
-import photoRoll from "@/assets/photos/roll-gi.jpg.asset.json";
-import photoGroup from "@/assets/photos/group-class.jpg.asset.json";
 import photoGrapple from "@/assets/photos/grapple-match.jpg.asset.json";
-import photoTeam from "@/assets/photos/team-lineup.jpg.asset.json";
 
 const SITE = "https://matmindbjj.lovable.app";
 const TITLE = "Mat Monkey — More mat time. Better company.";
@@ -217,77 +213,6 @@ function Hero() {
               />
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function PhotoSection() {
-  return (
-    <section className="bg-paper">
-      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-        <div className="grid gap-6 md:grid-cols-[1fr_1fr] md:items-end">
-          <div>
-            <Overline>Built for your crew</Overline>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
-              Good memories start on the mat.
-            </h2>
-          </div>
-          <p className="max-w-md text-[17px] leading-[1.5] text-ink-secondary md:justify-self-end">
-            The early-morning drillers, the open-mat regulars, the partner who always asks for one
-            more round. Mat Monkey is for the people you already roll with.
-          </p>
-        </div>
-
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-12 md:grid-rows-[260px_260px]">
-          <figure className="relative col-span-2 h-[340px] overflow-hidden rounded-[28px] md:col-span-5 md:row-span-2 md:h-auto">
-            <img
-              src={photoCoach.url}
-              alt="Two training partners laughing mid-roll in white gis"
-              className="h-full w-full object-cover"
-              width={900}
-              height={1350}
-              loading="lazy"
-            />
-            <TapeLabel className="absolute bottom-5 left-5">Sat open mat · Ironside BJJ</TapeLabel>
-          </figure>
-          <figure className="relative col-span-2 h-[220px] overflow-hidden rounded-[28px] md:col-span-7 md:h-auto">
-            <img
-              src={photoTeam.url}
-              alt="A gi throw in front of a gym wall"
-              className="h-full w-full object-cover object-[50%_35%]"
-              width={900}
-              height={600}
-              loading="lazy"
-            />
-            <TapeLabel className="absolute right-5 top-5" rotate={2.5}>
-              Takedown day
-            </TapeLabel>
-          </figure>
-          <figure className="relative h-[240px] overflow-hidden rounded-[28px] md:col-span-4 md:h-auto">
-            <img
-              src={photoGroup.url}
-              alt="A no-gi team watching two partners roll"
-              className="h-full w-full object-cover object-[50%_70%]"
-              width={900}
-              height={1349}
-              loading="lazy"
-            />
-            <TapeLabel className="absolute bottom-4 left-4" rotate={-2}>
-              No-gi crew
-            </TapeLabel>
-          </figure>
-          <figure className="relative h-[240px] overflow-hidden rounded-[28px] md:col-span-3 md:h-auto">
-            <img
-              src={photoRoll.url}
-              alt="Two people rolling in gis in a bright academy"
-              className="h-full w-full object-cover object-[50%_60%]"
-              width={900}
-              height={1349}
-              loading="lazy"
-            />
-          </figure>
         </div>
       </div>
     </section>
@@ -913,7 +838,6 @@ function Landing() {
       <Nav />
       <main id="main">
         <Hero />
-        <PhotoSection />
         <HowItWorks />
         <GoalsSection />
         <FriendsSection />
