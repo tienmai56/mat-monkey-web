@@ -170,8 +170,8 @@ function Hero() {
             </a>
           </div>
           <p className="mt-4 max-w-md text-[13px] leading-snug text-ink-secondary">
-            Mat Monkey (formerly Mat Mind) is on the App Store for iPhone. Planning with friends
-            arrives in the next iOS update.
+            Mat Monkey is on the App Store for iPhone. Planning with friends arrives in the next iOS
+            update.
           </p>
         </div>
 
@@ -647,8 +647,8 @@ function FriendsSection() {
 
 const FAQ_ITEMS = [
   {
-    q: "Is Mat Monkey the same app as Mat Mind?",
-    a: "Yes. Mat Monkey is the new name for Mat Mind, and it lives at the same App Store listing. The redesigned app shifts the focus to training with friends.",
+    q: "What is Mat Monkey?",
+    a: "Mat Monkey is a friendship-first BJJ app. Plan sessions with the training partners you already roll with, set a focus for the session, remember it afterwards with a photo or a note, share goals and keep weekly friendship streaks.",
   },
   {
     q: "When can I plan sessions with friends?",
