@@ -170,8 +170,8 @@ function Hero() {
             </a>
           </div>
           <p className="mt-4 max-w-md text-[13px] leading-snug text-ink-secondary">
-            Mat Monkey is on the App Store for iPhone. Planning with friends
-            arrives in the next iOS update.
+            Mat Monkey is on the App Store for iPhone. Planning with friends arrives in the next iOS
+            update.
           </p>
         </div>
 

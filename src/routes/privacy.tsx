@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LogoMark, Wordmark } from "@/components/home/brand";
 
-const URL = "https://matmonkey.lovable.app/privacy";
+const PAGE_URL = "https://matmonkey.lovable.app/privacy";
 const TITLE = "Privacy Policy — Mat Monkey";
 const DESCRIPTION = "Read how Mat Monkey handles information and privacy.";
 
@@ -13,12 +13,12 @@ export const Route = createFileRoute("/privacy")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "article" },
-      { property: "og:url", content: URL },
+      { property: "og:url", content: PAGE_URL },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [{ rel: "canonical", href: URL }],
+    links: [{ rel: "canonical", href: PAGE_URL }],
   }),
   component: Privacy,
 });
@@ -111,8 +111,8 @@ function Privacy() {
 
             <Section title="3. Changes to This Privacy Policy">
               <p>
-                We may update this policy occasionally. Since we do not collect user information,
-                we will not have a way to notify you of changes via email. We encourage you to check
+                We may update this policy occasionally. Since we do not collect user information, we
+                will not have a way to notify you of changes via email. We encourage you to check
                 this page periodically for updates.
               </p>
             </Section>
