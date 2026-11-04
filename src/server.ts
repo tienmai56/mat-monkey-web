@@ -1,4 +1,7 @@
 import "./lib/error-capture";
+import { ASSOCIATION_PATH, associationResponse, protectInvitationResponse } from "./lib/app-links";
+import { shareResponse } from "./lib/share-pages.server";
+import { previewEnvironment } from "./lib/invitation-preview";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
@@ -12,7 +15,7 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => ((m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry)),
+      (m) => (m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry),
     );
   }
   return serverEntryPromise;
@@ -68,13 +71,19 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
+    const pathname = new URL(request.url).pathname;
+    // Serve Apple's exact extensionless endpoint without SSR, redirects or MIME
+    // guessing by the asset host. The existing home/privacy routes remain intact.
+    if (pathname === ASSOCIATION_PATH) return associationResponse(request.method);
     try {
+      const shared = await shareResponse(request, previewEnvironment(request, env));
+      if (shared) return shared;
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return protectInvitationResponse(await normalizeCatastrophicSsrResponse(response), pathname);
     } catch (error) {
       console.error(error);
-      return brandedErrorResponse();
+      return protectInvitationResponse(brandedErrorResponse(), pathname);
     }
   },
 };
