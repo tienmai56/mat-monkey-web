@@ -34,8 +34,7 @@ import {
 } from "@/components/home/brand";
 import { PhoneFrame, SessionTicket, TrainingScreen } from "@/components/home/phone";
 import photoGrapple from "@/assets/photos/grapple-match.jpg.asset.json";
-
-const SITE = "https://matmindbjj.lovable.app";
+import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
 const TITLE = "Mat Monkey — More mat time. Better company.";
 const DESCRIPTION =
   "Mat Monkey is the friendship-first BJJ app. Plan sessions with your training partners, set a focus, remember the rounds with a photo or a note, share goals and keep weekly friendship streaks.";

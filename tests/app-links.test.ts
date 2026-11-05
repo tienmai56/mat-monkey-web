@@ -58,7 +58,7 @@ describe("Invitation privacy headers", () => {
     );
     expect(response.headers.get("referrer-policy")).toBe("no-referrer");
     expect(response.headers.get("cache-control")).toBe("no-store");
-    expect(response.headers.get("x-mat-monkey-preview-version")).toBe("20261104.2");
+    expect(response.headers.get("x-mat-monkey-preview-version")).toBe("20261105.1");
     expect(response.headers.get("x-robots-tag")).toBe("noindex, nofollow");
     expect(await response.text()).toBe("invitation");
     expect(
