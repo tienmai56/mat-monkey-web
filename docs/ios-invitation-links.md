@@ -58,7 +58,9 @@ invited, declined, and organizer-blocked people are excluded.
 1. Apply the reviewed database migration to the social project and configure the
    runtime bindings above.
 2. Confirm `9R4A2F8F94.com.tienmai.intentionaltrainingnotes` against the production
-   provisioning profile. Retain `applinks:matmindbjj.lovable.app` in iOS entitlements.
+   provisioning profile. The website's public host is `https://matmonkey.lovable.app`
+   (`APP_LINK_ORIGIN`); iOS entitlements need `applinks:matmonkey.lovable.app`. The old
+   `matmindbjj.lovable.app` host no longer serves this project.
 3. Merge and publish this website through its existing Lovable workflow. GitHub
    merge alone does not publish the website.
 4. Verify the live association URL returns JSON with no redirect and that a genuine

@@ -5,7 +5,10 @@ export const APP_STORE_URL =
 // Identifier Prefix before publishing if its signing team has ever changed.
 export const APP_IDENTIFIER = "9R4A2F8F94.com.tienmai.intentionaltrainingnotes";
 export const ASSOCIATION_PATH = "/.well-known/apple-app-site-association";
-export const APP_LINK_ORIGIN = "https://matmindbjj.lovable.app";
+// Current public web host for share, OG and canonical URLs. The previous
+// matmindbjj.lovable.app host no longer serves this project.
+export const APP_LINK_ORIGIN = "https://matmonkey.lovable.app";
+export const PREVIEW_VERSION = "20261105.1";
 
 export const appleAppSiteAssociation = {
   applinks: {
@@ -54,7 +57,7 @@ export function protectInvitationResponse(response: Response, pathname: string):
   headers.set("Cache-Control", "no-store");
   headers.set("X-Robots-Tag", "noindex, nofollow");
   headers.set("X-Content-Type-Options", "nosniff");
-  headers.set("X-Mat-Monkey-Preview-Version", "20261104.2");
+  headers.set("X-Mat-Monkey-Preview-Version", PREVIEW_VERSION);
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,

@@ -1,4 +1,5 @@
 import { describe, expect, test } from "bun:test";
+import { APP_LINK_ORIGIN } from "../src/lib/app-links";
 import { deploymentPreviewEnvironment } from "../src/lib/share-deployment.server";
 import { invitationHTML, shareResponse } from "../src/lib/share-pages.server";
 import {
@@ -135,6 +136,27 @@ describe("Crawler HTML and app fallback", () => {
     expect(html).toContain("id6767997652");
     expect(html).toContain("Return to this original link after installing");
     expect(html).not.toContain("<script");
+  });
+  test("share URLs use the current matmonkey host, never the dead matmindbjj host", async () => {
+    const host = "https://matmonkey.lovable.app";
+    expect(APP_LINK_ORIGIN).toBe(host);
+    const pages = [
+      invitationHTML("session", token, active),
+      await (await shareResponse(
+        new Request(`https://example.com/session/${"0".repeat(64)}`),
+        {},
+        { lookup: async () => ({ state: "unavailable" as const }) },
+      ))!.text(),
+    ];
+    for (const html of pages) {
+      expect(html).not.toContain("matmindbjj");
+      const tag = (re: RegExp) => html.match(re)?.[1];
+      expect(tag(/property="og:url" content="([^"]+)"/)).toStartWith(`${host}/session/`);
+      expect(tag(/rel="canonical" href="([^"]+)"/)).toStartWith(`${host}/session/`);
+      expect(tag(/property="og:image" content="([^"]+)"/)).toStartWith(`${host}/share/preview/`);
+      expect(tag(/name="twitter:image" content="([^"]+)"/)).toStartWith(`${host}/share/preview/`);
+    }
+    expect(pages[0]).toContain(`${host}/share/preview/session/${token}.png`);
   });
   test("escapes content in visible HTML and metadata", () => {
     const html = invitationHTML("session", token, {
