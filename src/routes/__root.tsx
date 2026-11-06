@@ -92,6 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: `${APP_LINK_ORIGIN}/share/preview/app.png` },
     ],
     links: [
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "stylesheet", href: appCss },
       {
         rel: "preload",
