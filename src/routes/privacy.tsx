@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LogoMark, Wordmark } from "@/components/home/brand";
+import { APP_LINK_ORIGIN } from "@/lib/app-links";
 
-const PAGE_URL = "https://matmonkey.lovable.app/privacy";
+const PAGE_URL = `${APP_LINK_ORIGIN}/privacy`;
 const TITLE = "Privacy Policy — Mat Monkey";
 const DESCRIPTION = "Read how Mat Monkey handles information and privacy.";
 

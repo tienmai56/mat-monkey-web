@@ -79,6 +79,13 @@ try {
     assert.equal(response.headers.get("referrer-policy"), "no-referrer");
     const html = await response.text();
     assert(html.includes(`matmind://${kind}/${token}`));
+    const canonical = `https://mymatmonkey.com/${kind}/${token}`;
+    const imageURL = `https://mymatmonkey.com/share/preview/${kind}/${token}.png`;
+    assert(html.includes(`property="og:url" content="${canonical}"`));
+    assert(html.includes(`rel="canonical" href="${canonical}"`));
+    assert(html.includes(`property="og:image" content="${imageURL}"`));
+    assert(html.includes(`name="twitter:image" content="${imageURL}"`));
+    assert(!html.includes("lovable.app"));
     assert(html.includes("summary_large_image"));
     assert(!html.includes("<script"));
     if (kind === "session") {
