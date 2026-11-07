@@ -5,9 +5,9 @@ export const APP_STORE_URL =
 // Identifier Prefix before publishing if its signing team has ever changed.
 export const APP_IDENTIFIER = "9R4A2F8F94.com.tienmai.intentionaltrainingnotes";
 export const ASSOCIATION_PATH = "/.well-known/apple-app-site-association";
-// Current public web host for share, OG and canonical URLs. The previous
-// matmindbjj.lovable.app host no longer serves this project.
-export const APP_LINK_ORIGIN = "https://matmonkey.lovable.app";
+// Keep copied links, social previews and canonical URLs on the custom domain,
+// including when a crawler requests a page through an older hosting address.
+export const APP_LINK_ORIGIN = "https://mymatmonkey.com";
 export const PREVIEW_VERSION = "20261105.1";
 
 export const appleAppSiteAssociation = {

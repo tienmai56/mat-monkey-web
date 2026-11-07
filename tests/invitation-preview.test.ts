@@ -137,8 +137,8 @@ describe("Crawler HTML and app fallback", () => {
     expect(html).toContain("Return to this original link after installing");
     expect(html).not.toContain("<script");
   });
-  test("share URLs use the current matmonkey host, never the dead matmindbjj host", async () => {
-    const host = "https://matmonkey.lovable.app";
+  test("share URLs and preview images use the custom domain even on older hosting addresses", async () => {
+    const host = "https://mymatmonkey.com";
     expect(APP_LINK_ORIGIN).toBe(host);
     const pages = [
       invitationHTML("session", token, active),
@@ -149,7 +149,7 @@ describe("Crawler HTML and app fallback", () => {
       ))!.text(),
     ];
     for (const html of pages) {
-      expect(html).not.toContain("matmindbjj");
+      expect(html).not.toContain("lovable.app");
       const tag = (re: RegExp) => html.match(re)?.[1];
       expect(tag(/property="og:url" content="([^"]+)"/)).toStartWith(`${host}/session/`);
       expect(tag(/rel="canonical" href="([^"]+)"/)).toStartWith(`${host}/session/`);
@@ -157,6 +157,28 @@ describe("Crawler HTML and app fallback", () => {
       expect(tag(/name="twitter:image" content="([^"]+)"/)).toStartWith(`${host}/share/preview/`);
     }
     expect(pages[0]).toContain(`${host}/share/preview/session/${token}.png`);
+    for (const origin of [host, "https://matmonkey.lovable.app", "https://example.com"]) {
+      for (const kind of ["session", "friend", "goal"] as const) {
+        for (const state of ["active", "unavailable", "offline"] as const) {
+          const response = (await shareResponse(
+            new Request(`${origin}/${kind}/${token}`),
+            {},
+            {
+              lookup: async () =>
+                state === "active"
+                  ? { state, preview: kind === "session" ? session : { kind } }
+                  : { state },
+            },
+          ))!;
+          const html = await response.text();
+          expect(html).toContain(`property="og:url" content="${host}/${kind}/${token}"`);
+          expect(html).toContain(`rel="canonical" href="${host}/${kind}/${token}"`);
+          expect(html).toContain(`property="og:image" content="${host}/share/preview/`);
+          expect(html).toContain(`name="twitter:image" content="${host}/share/preview/`);
+          expect(html).not.toContain("lovable.app");
+        }
+      }
+    }
   });
   test("escapes content in visible HTML and metadata", () => {
     const html = invitationHTML("session", token, {

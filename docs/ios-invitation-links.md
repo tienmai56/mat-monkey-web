@@ -58,11 +58,13 @@ invited, declined, and organizer-blocked people are excluded.
 1. Apply the reviewed database migration to the social project and configure the
    runtime bindings above.
 2. Confirm `9R4A2F8F94.com.tienmai.intentionaltrainingnotes` against the production
-   provisioning profile. The website's public host is `https://matmonkey.lovable.app`
-   (`APP_LINK_ORIGIN`); iOS entitlements need `applinks:matmonkey.lovable.app`. The old
-   `matmindbjj.lovable.app` host no longer serves this project.
-3. Merge and publish this website through its existing Lovable workflow. GitHub
-   merge alone does not publish the website.
+   provisioning profile. The website's public host is `https://mymatmonkey.com`
+   (`APP_LINK_ORIGIN`); iOS entitlements need `applinks:mymatmonkey.com`. Keep the
+   previous `applinks:matmonkey.lovable.app` entitlement for old invitations.
+3. Connect `mymatmonkey.com` to this website through Lovable's custom-domain setup,
+   adding the DNS records it provides at Cloudflare. This is separate from the
+   Supabase `auth.mymatmonkey.com` subdomain. Merge and publish this website through
+   its existing Lovable workflow. GitHub merge alone does not publish the website.
 4. Verify the live association URL returns JSON with no redirect and that a genuine
    session token returns its own metadata and a valid PNG, using
    `SESSION_SHARE_TOKEN=<active token> node scripts/verify-share-host.mjs` in the
@@ -71,9 +73,10 @@ invited, declined, and organizer-blocked people are excluded.
    browser fallback, profile setup/sign-in continuation, exact session navigation,
    expired links, and cancellation. After installation users return to the original
    invitation; this does not implement deferred linking across installation.
-6. Set **AppLinksEnabled=true** in iOS Info.plist after verification and ship the
-   signed build. The checked-in flag remains false until hosting is ready, so
-   existing installed builds continue creating custom-scheme links in the meantime.
+6. The iOS source has **AppLinksEnabled=true** and `AppLinkHost=mymatmonkey.com`.
+   After website verification, ship the signed build with the matching Associated
+   Domain. Existing installed builds continue using their previous sharing host
+   until updated. The parser still accepts both old Lovable hosts and native QR codes.
 
 Messaging apps control their card crops, description truncation, and caches.
 Saved session changes affect subsequent server requests, but a cached social card
