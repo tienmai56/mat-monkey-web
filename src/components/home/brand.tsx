@@ -1,5 +1,4 @@
 import { ArrowUpRight } from "lucide-react";
-import { APP_STORE_URL } from "@/lib/app-links";
 import { cn } from "@/lib/utils";
 
 /** The original Silverback mark. Never redraw or recolor — always load the file. */
@@ -202,7 +201,7 @@ export function AppStoreButton({
 }) {
   return (
     <a
-      href={APP_STORE_URL}
+      href="https://testflight.apple.com/join/csjcMYCB"
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
@@ -213,7 +212,7 @@ export function AppStoreButton({
         className,
       )}
     >
-      Download on the App Store
+      Try the beta app
       <ArrowUpRight className="h-5 w-5" strokeWidth={2.25} aria-hidden />
       <span className="sr-only">(opens in a new tab)</span>
     </a>
