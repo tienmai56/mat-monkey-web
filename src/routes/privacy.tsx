@@ -91,10 +91,10 @@ function Privacy() {
           <div className="mt-10 space-y-10 rounded-[24px] bg-card p-6 text-[16px] leading-relaxed text-ink-secondary shadow-card sm:p-10">
             <Section title="1. What this policy covers">
               <p className="mb-4">
-                This policy describes the Mat Monkey website, email signup records, web
-                invitation previews and the app data practices described below. Mat Monkey’s social experience uses online services for
-                accounts, training invitations and sharing; it is not an entirely local,
-                account-free notebook.
+                This policy describes the Mat Monkey website, email signup records, web invitation
+                previews and the app data practices described below. Mat Monkey’s social experience
+                uses online services for accounts, training invitations and sharing; it is not an
+                entirely local, account-free notebook.
               </p>
               <p>
                 The social app uses a separate backend from this website’s email signup records. The
@@ -139,9 +139,9 @@ function Privacy() {
             <Section title="3. App content and your sharing choices">
               <ul className="mb-4 list-disc space-y-2 pl-6">
                 <li>
-                  <strong>Accounts and training:</strong> cloud records include profiles,
-                  training sessions and attendance, shared goals, and private quick training logs.
-                  These support your account, training plans, participation and saved training activity.
+                  <strong>Accounts and training:</strong> cloud records include profiles, training
+                  sessions and attendance, shared goals, and private quick training logs. These
+                  support your account, training plans, participation and saved training activity.
                 </li>
                 <li>
                   <strong>Social content:</strong> posts, photos, comments, likes, friend
@@ -157,7 +157,8 @@ function Privacy() {
               <p className="mb-4">
                 Private local notebook content is distinct from these cloud features. Not every
                 reflection or notebook entry is synchronized to the backend. Private quick training
-                logs are cloud records, but are distinct from social posts and shared session content.
+                logs are cloud records, but are distinct from social posts and shared session
+                content.
               </p>
               <p className="mb-4">
                 The social experience includes account-based friend connections, session plans and
@@ -191,16 +192,16 @@ function Privacy() {
               </p>
               <p>
                 Your own verified phone number remains in the authentication service.
-                Discoverability uses a keyed hash, and the matching process logs the match count
-                and time. You can disable discoverability to control whether others can find you
-                through this matching feature.
+                Discoverability uses a keyed hash, and the matching process logs the match count and
+                time. You can disable discoverability to control whether others can find you through
+                this matching feature.
               </p>
             </Section>
 
             <Section title="5. Optional app usage analytics">
               <p className="mb-4">
-                In app versions that support Settings → Share usage data, analytics is opt-in
-                and initially off. The backend supports this consent-based system, but the updated
+                In app versions that support Settings → Share usage data, analytics is opt-in and
+                initially off. The backend supports this consent-based system, but the updated
                 native client still requires release. Not every currently available app version
                 exposes this control.
               </p>
@@ -209,8 +210,8 @@ function Privacy() {
                 outcomes, onboarding, and training-session and quick-log creation and outcomes.
                 These events help understand app usage and where these flows succeed or encounter
                 errors. They include random installation and session identifiers, account identity
-                after sign-in, timestamps, app version and platform, screen or source, and controlled
-                error codes. They do not copy freeform notes or authentication tokens.
+                after sign-in, timestamps, app version and platform, screen or source, and
+                controlled error codes. They do not copy freeform notes or authentication tokens.
               </p>
               <p className="mb-4">
                 After sign-in, analytics can be linked to your account across devices and to
