@@ -97,10 +97,10 @@ function Privacy() {
                 account-free notebook.
               </p>
               <p>
-                The social app uses a separate backend from this website’s email signup records.
-                The details below distinguish information handled by this website from content
-                managed inside the app. The website’s example profiles and training cards are
-                fictional demonstrations, not live user records.
+                The social app uses a separate backend from this website’s email signup records. The
+                details below distinguish information handled by this website from content managed
+                inside the app. The website’s example profiles and training cards are fictional
+                demonstrations, not live user records.
               </p>
             </Section>
 
@@ -138,67 +138,69 @@ function Privacy() {
 
             <Section title="3. App content and your sharing choices">
               <p className="mb-4">
-                The social experience includes account-based friend connections, session plans
-                and attendance, training focus, completed-session photos or notes, shared goals
-                and friendship streaks. You choose whom to invite and whether to share goals.
-                Goals are personal until shared; shared goals follow their owner’s edits.
-                Link-visible upcoming sessions can appear in friends’ Activity so they can join;
-                friends-only sessions stay out of that feed.
+                The social experience includes account-based friend connections, session plans and
+                attendance, training focus, completed-session photos or notes, shared goals and
+                friendship streaks. You choose whom to invite and whether to share goals. Goals are
+                personal until shared; shared goals follow their owner’s edits. Link-visible
+                upcoming sessions can appear in friends’ Activity so they can join; friends-only
+                sessions stay out of that feed.
               </p>
               <p className="mb-4">
                 Web invitation links are accessible to someone who has the link, including a
                 messaging service that fetches a preview. A session link can reveal the summary
                 listed above without signing in to the website. Treat the link as access to that
                 summary and share it only with people you intend to receive it. Full notes and
-                nested training-focus details are not included in the web preview. Continuing to
-                the invitation inside the app requires sign-in.
+                nested training-focus details are not included in the web preview. Continuing to the
+                invitation inside the app requires sign-in.
               </p>
               <p>
                 Recipients can forward links, save images or take screenshots. Messaging services
-                control their own preview caches. A revoked or unavailable invitation stops
-                serving its session details on new website requests, but cannot remove copies
-                already received or cached elsewhere.
+                control their own preview caches. A revoked or unavailable invitation stops serving
+                its session details on new website requests, but cannot remove copies already
+                received or cached elsewhere.
               </p>
             </Section>
 
             <Section title="4. Services and recipients">
               <p className="mb-4">
-                Lovable Cloud provides this website’s signup database, and Cloudflare Workers
-                runs the invitation-page and image-generation code. The separate Mat Monkey app
-                backend receives invitation checks and returns the permitted preview fields.
-                Preview images are generated using bundled fonts and artwork rather than sending
-                session details to an external image-generation service.
+                Lovable Cloud provides this website’s signup database, and Cloudflare Workers runs
+                the invitation-page and image-generation code. The separate Mat Monkey app backend
+                receives invitation checks and returns the permitted preview fields. Preview images
+                are generated using bundled fonts and artwork rather than sending session details to
+                an external image-generation service.
               </p>
               <p>
                 People you share with and the messaging services they use can receive invitation
                 summaries. The beta-download button takes you to Apple TestFlight; App Store links
                 take you to Apple. Those services handle your interactions under their own policies.
-                Contacting us by email also involves the email services used to deliver your message.
+                Contacting us by email also involves the email services used to deliver your
+                message.
               </p>
             </Section>
 
             <Section title="5. Browser storage and tracking">
               <p className="mb-4">
                 The current public homepage and privacy page do not include an advertising tracker,
-                an analytics script or an email signup form. Fonts are served from this site.
-                These pages do not provide a sign-in screen.
+                an analytics script or an email signup form. Fonts are served from this site. These
+                pages do not provide a sign-in screen.
               </p>
               <p>
                 The website’s authentication client is configured to retain a session in browser
                 local storage when authentication is used. In an embedded Lovable editor preview,
-                that session can also be synchronized with the editor; this is distinct from visiting
-                the public site. You can clear site storage using your browser settings, but doing so
-                does not delete server-side signup or app records. Hosting and linked services may
-                handle technical request information separately from the website’s page code.
+                that session can also be synchronized with the editor; this is distinct from
+                visiting the public site. You can clear site storage using your browser settings,
+                but doing so does not delete server-side signup or app records. Hosting and linked
+                services may handle technical request information separately from the website’s page
+                code.
               </p>
             </Section>
 
             <Section title="6. Retention, deletion and access requests">
               <p className="mb-4">
                 Existing email signup records remain in the website database. Its current
-                implementation has no automatic expiry schedule or public self-service deletion
-                or export screen. Removing the homepage form or clearing your browser does not
-                erase those records.
+                implementation has no automatic expiry schedule or public self-service deletion or
+                export screen. Removing the homepage form or clearing your browser does not erase
+                those records.
               </p>
               <p className="mb-4">
                 To ask about information associated with you, request a copy or correction, or
@@ -224,11 +226,11 @@ function Privacy() {
                 invitation data.
               </p>
               <p>
-                Invitation pages and their images request no browser caching, no search indexing
-                and no referrer disclosure. These measures do not prevent recipients from keeping
-                copies or guarantee that third-party services will discard their caches. No online
-                service can eliminate every security risk; avoid including sensitive information in
-                content that you intend to share.
+                Invitation pages and their images request no browser caching, no search indexing and
+                no referrer disclosure. These measures do not prevent recipients from keeping copies
+                or guarantee that third-party services will discard their caches. No online service
+                can eliminate every security risk; avoid including sensitive information in content
+                that you intend to share.
               </p>
             </Section>
 
