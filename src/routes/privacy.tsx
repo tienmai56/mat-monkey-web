@@ -140,10 +140,10 @@ function Privacy() {
               <ul className="mb-4 list-disc space-y-2 pl-6">
                 <li>
                   <strong>Accounts and training:</strong> cloud records include your account email,
-                  authentication identity and optional verified phone number. Profiles include
-                  name, username, belt and stripes, gym and avatar. Training records include
-                  sessions and attendance, shared goals, and private quick training logs. These
-                  support your account, training plans, participation and saved training activity.
+                  authentication identity and optional verified phone number. Profiles include name,
+                  username, belt and stripes, gym and avatar. Training records include sessions and
+                  attendance, shared goals, and private quick training logs. These support your
+                  account, training plans, participation and saved training activity.
                 </li>
                 <li>
                   <strong>Social content:</strong> posts, photos, comments, likes, friend
@@ -195,16 +195,16 @@ function Privacy() {
               <p>
                 Your own verified phone number remains in the authentication service.
                 Discoverability uses a keyed hash, and the matching process logs the number of phone
-                numbers checked and the time, not the number of successful matches.
-                You can disable discoverability to control whether others can find you through
-                this matching feature.
+                numbers checked and the time, not the number of successful matches. You can disable
+                discoverability to control whether others can find you through this matching
+                feature.
               </p>
             </Section>
 
             <Section title="5. Optional app usage analytics">
               <p className="mb-4">
-                Where available, Settings → Share usage data lets you choose whether to send optional
-                usage analytics. It is off by default. Availability depends on app version.
+                Where available, Settings → Share usage data lets you choose whether to send
+                optional usage analytics. It is off by default. Availability depends on app version.
               </p>
               <p className="mb-4">
                 If you opt in, usage events cover app opens, navigation, sign-in attempts and
@@ -229,8 +229,8 @@ function Privacy() {
 
             <Section title="6. Services and recipients">
               <p className="mb-4">
-                Supabase provides the app’s authentication, database and media storage.
-                Apple handles push notification delivery when enabled.
+                Supabase provides the app’s authentication, database and media storage. Apple
+                handles push notification delivery when enabled.
               </p>
               <p className="mb-4">
                 Lovable Cloud provides this website’s signup database, and Cloudflare Workers runs
@@ -275,9 +275,9 @@ function Privacy() {
               <p className="mb-4">
                 App account deletion removes uploaded session photos, avatar files, goal media,
                 social account data and the authentication identity. Backup copies may remain
-                subject to applicable retention, and copies saved by other people may remain
-                outside our control. The analytics
-                retention and consent-withdrawal rules are described above.
+                subject to applicable retention, and copies saved by other people may remain outside
+                our control. The analytics retention and consent-withdrawal rules are described
+                above.
               </p>
               <p className="mb-4">
                 To ask about information associated with you, request a copy or correction, or
@@ -287,9 +287,9 @@ function Privacy() {
                 to identify the relevant record before acting on a request.
               </p>
               <p>
-                The website does not provide an app-account deletion or export tool.
-                Applicable privacy rights depend on your circumstances and location; you
-                can use the same contact address to raise a privacy request or concern.
+                The website does not provide an app-account deletion or export tool. Applicable
+                privacy rights depend on your circumstances and location; you can use the same
+                contact address to raise a privacy request or concern.
               </p>
             </Section>
 
