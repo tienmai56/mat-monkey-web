@@ -91,10 +91,10 @@ function Privacy() {
           <div className="mt-10 space-y-10 rounded-[24px] bg-card p-6 text-[16px] leading-relaxed text-ink-secondary shadow-card sm:p-10">
             <Section title="1. What this policy covers">
               <p className="mb-4">
-                This policy describes the Mat Monkey website, email signup records and web
-                invitation previews. Mat Monkey’s social experience uses online services for
-                accounts, training invitations and sharing; it is not an entirely local,
-                account-free notebook.
+                This policy describes the Mat Monkey website, email signup records, web invitation
+                previews and the app data practices described below. Mat Monkey’s social experience
+                uses online services for accounts, training invitations and sharing; it is not an
+                entirely local, account-free notebook.
               </p>
               <p>
                 The social app uses a separate backend from this website’s email signup records. The
@@ -137,6 +137,29 @@ function Privacy() {
             </Section>
 
             <Section title="3. App content and your sharing choices">
+              <ul className="mb-4 list-disc space-y-2 pl-6">
+                <li>
+                  <strong>Accounts and training:</strong> cloud records include profiles, training
+                  sessions and attendance, shared goals, and private quick training logs. These
+                  support your account, training plans, participation and saved training activity.
+                </li>
+                <li>
+                  <strong>Social content:</strong> posts, photos, comments, likes, friend
+                  connections and blocks support sharing and interactions with your training circle.
+                  Uploaded media includes session photos, avatar files and goal media.
+                </li>
+                <li>
+                  <strong>Notifications and operations:</strong> notifications and device push
+                  tokens support delivery of app notifications. Reports and operational command
+                  records support handling reports and app operations.
+                </li>
+              </ul>
+              <p className="mb-4">
+                Private local notebook content is distinct from these cloud features. Not every
+                reflection or notebook entry is synchronized to the backend. Private quick training
+                logs are cloud records, but are distinct from social posts and shared session
+                content.
+              </p>
               <p className="mb-4">
                 The social experience includes account-based friend connections, session plans and
                 attendance, training focus, completed-session photos or notes, shared goals and
@@ -161,7 +184,49 @@ function Privacy() {
               </p>
             </Section>
 
-            <Section title="4. Services and recipients">
+            <Section title="4. Optional contact matching">
+              <p className="mb-4">
+                If you choose contact matching, contact phone numbers are sent to the backend to
+                find matches. Those uploaded numbers are processed but are not retained in the
+                matching tables. This does not mean that only hashes leave your device.
+              </p>
+              <p>
+                Your own verified phone number remains in the authentication service.
+                Discoverability uses a keyed hash, and the matching process logs the match count and
+                time. You can disable discoverability to control whether others can find you through
+                this matching feature.
+              </p>
+            </Section>
+
+            <Section title="5. Optional app usage analytics">
+              <p className="mb-4">
+                In app versions that support Settings → Share usage data, analytics is opt-in and
+                initially off. The backend supports this consent-based system, but the updated
+                native client still requires release. Not every currently available app version
+                exposes this control.
+              </p>
+              <p className="mb-4">
+                If you opt in, usage events cover app opens, navigation, sign-in attempts and
+                outcomes, onboarding, and training-session and quick-log creation and outcomes.
+                These events help understand app usage and where these flows succeed or encounter
+                errors. They include random installation and session identifiers, account identity
+                after sign-in, timestamps, app version and platform, screen or source, and
+                controlled error codes. They do not copy freeform notes or authentication tokens.
+              </p>
+              <p className="mb-4">
+                After sign-in, analytics can be linked to your account across devices and to
+                activity recorded before sign-in. Opt-in analytics is therefore not necessarily
+                anonymous.
+              </p>
+              <p>
+                Raw events expire after 180 days. Minimal first-use timestamps remain until you
+                withdraw consent or delete your account. Withdrawing consent clears local event
+                queues and requests erasure from the server. If you withdraw while offline, that
+                erasure request retries when the app reconnects.
+              </p>
+            </Section>
+
+            <Section title="6. Services and recipients">
               <p className="mb-4">
                 Lovable Cloud provides this website’s signup database, and Cloudflare Workers runs
                 the invitation-page and image-generation code. The separate Mat Monkey app backend
@@ -178,7 +243,7 @@ function Privacy() {
               </p>
             </Section>
 
-            <Section title="5. Browser storage and tracking">
+            <Section title="7. Browser storage and tracking">
               <p className="mb-4">
                 The current public homepage and privacy page do not include an advertising tracker,
                 an analytics script or an email signup form. Fonts are served from this site. These
@@ -195,12 +260,18 @@ function Privacy() {
               </p>
             </Section>
 
-            <Section title="6. Retention, deletion and access requests">
+            <Section title="8. Retention, deletion and access requests">
               <p className="mb-4">
                 Existing email signup records remain in the website database. Its current
                 implementation has no automatic expiry schedule or public self-service deletion or
                 export screen. Removing the homepage form or clearing your browser does not erase
                 those records.
+              </p>
+              <p className="mb-4">
+                App account deletion removes uploaded session photos, avatar files, goal media,
+                social account data and the authentication identity. This does not promise immediate
+                erasure of backups or remove content that other people have saved. The analytics
+                retention and consent-withdrawal rules are described above.
               </p>
               <p className="mb-4">
                 To ask about information associated with you, request a copy or correction, or
@@ -217,7 +288,7 @@ function Privacy() {
               </p>
             </Section>
 
-            <Section title="7. Access controls and security">
+            <Section title="9. Access controls and security">
               <p className="mb-4">
                 The signup database restricts public access to validated submissions; it does not
                 allow public reading, editing or deletion of the signup list. The invitation handler
@@ -234,7 +305,7 @@ function Privacy() {
               </p>
             </Section>
 
-            <Section title="8. Updates and contact">
+            <Section title="10. Updates and contact">
               <p>
                 We may update this policy as Mat Monkey changes. The date above identifies the
                 latest revision. Please check this page for updates and contact us with questions
