@@ -1,6 +1,10 @@
 export const APP_STORE_URL =
   "https://apps.apple.com/us/app/mat-mind-jiu-jitsu-planner/id6767997652";
 
+// Single destination for every "Join the beta" call to action on the website:
+// the homepage buttons and the shared invitation pages all link here.
+export const BETA_URL = "https://testflight.apple.com/join/csjcMYCB";
+
 // Matches the team and bundle ID in the iOS project. Verify the production App
 // Identifier Prefix before publishing if its signing team has ever changed.
 export const APP_IDENTIFIER = "9R4A2F8F94.com.tienmai.intentionaltrainingnotes";

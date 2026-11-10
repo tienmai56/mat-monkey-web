@@ -2,10 +2,17 @@ import { describe, expect, test } from "bun:test";
 import {
   APP_IDENTIFIER,
   APP_STORE_URL,
+  BETA_URL,
   associationResponse,
   invitationAppURL,
   protectInvitationResponse,
 } from "../src/lib/app-links";
+
+describe("Beta destination", () => {
+  test("every Join the beta link points at the exact TestFlight invite", () => {
+    expect(BETA_URL).toBe("https://testflight.apple.com/join/csjcMYCB");
+  });
+});
 
 describe("Apple app association", () => {
   test("GET returns extensionless association JSON without redirect", async () => {

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { BETA_URL } from "@/lib/app-links";
 import { cn } from "@/lib/utils";
 
 /** The original Silverback mark. Never redraw or recolor — always load the file. */
@@ -201,7 +202,7 @@ export function AppStoreButton({
 }) {
   return (
     <a
-      href="https://testflight.apple.com/join/csjcMYCB"
+      href={BETA_URL}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(

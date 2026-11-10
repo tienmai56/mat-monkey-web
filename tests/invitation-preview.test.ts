@@ -133,7 +133,7 @@ describe("Crawler HTML and app fallback", () => {
     ])
       expect(html).toContain(content);
     expect(html).toContain(`/share/preview/session/${token}.png`);
-    expect(html).toContain("id6767997652");
+    expect(html).toContain("app-id=6767997652");
     expect(html).toContain("Return to this original link after installing");
     expect(html).not.toContain("<script");
   });
@@ -157,6 +157,16 @@ describe("Crawler HTML and app fallback", () => {
       expect(tag(/name="twitter:image" content="([^"]+)"/)).toStartWith(`${host}/share/preview/`);
     }
     expect(pages[0]).toContain(`${host}/share/preview/session/${token}.png`);
+  });
+  test("beta button links to the TestFlight invite while deep linking stays native", () => {
+    const html = invitationHTML("session", token, active);
+    expect(html).toContain(
+      '<a class="button secondary" href="https://testflight.apple.com/join/csjcMYCB" rel="noreferrer">Join the Mat Monkey beta</a>',
+    );
+    expect(html).toContain('<a class="button primary" href="matmind://session/' + token + '">');
+    expect(html).not.toContain("apps.apple.com");
+    const noApp = invitationHTML("session", token, { state: "unavailable" });
+    expect(noApp).toContain('class="button primary" href="https://testflight.apple.com/join/csjcMYCB"');
   });
   test("escapes content in visible HTML and metadata", () => {
     const html = invitationHTML("session", token, {
