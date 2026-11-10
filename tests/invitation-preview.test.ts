@@ -133,7 +133,7 @@ describe("Crawler HTML and app fallback", () => {
     ])
       expect(html).toContain(content);
     expect(html).toContain(`/share/preview/session/${token}.png`);
-    expect(html).toContain("id6767997652");
+    expect(html).toContain("app-id=6767997652");
     expect(html).toContain("Return to this original link after installing");
     expect(html).not.toContain("<script");
   });
