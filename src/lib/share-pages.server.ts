@@ -1,6 +1,6 @@
 import {
   APP_LINK_ORIGIN,
-  BETA_URL,
+  APP_STORE_URL,
   invitationAppURL,
   protectInvitationResponse,
   type InvitationKind,
@@ -52,7 +52,7 @@ ${appURL ? `<meta name="apple-itunes-app" content="app-id=6767997652, app-argume
 ${active ? `<img class="ticket" src="${e(imagePath)}" width="1200" height="630" alt="${e(description)}">` : ""}
 <div class="content"><p class="label">${kind === "session" ? "Training session" : kind === "goal" ? "Shared goal" : "Friend invite"}</p><h1>${e(session?.title ?? (unavailable ? "This link is no longer available" : kind === "session" ? "You’re invited. Let’s roll." : kind === "friend" ? "Good rounds. Better company." : "Bring a goal. Build your game."))}</h1>
 ${summary || `<p class="intro">${e(unavailable ? description : result.state === "offline" ? "The preview isn’t available right now. Open Mat Monkey to check your invitation, or try this page again shortly." : copy.description)}</p>`}
-<div class="actions">${appURL ? `<a class="button primary" href="${e(appURL)}">Open in Mat Monkey</a>` : ""}<a class="button ${appURL ? "secondary" : "primary"}" href="${e(BETA_URL)}" rel="noreferrer">Join the Mat Monkey beta</a></div>
+<div class="actions">${appURL ? `<a class="button primary" href="${e(appURL)}">Open in Mat Monkey</a>` : ""}<a class="button ${appURL ? "secondary" : "primary"}" href="${e(APP_STORE_URL)}" rel="noreferrer">Download on the App Store</a></div>
 ${appURL ? '<p class="hint">Sign in to continue to this invitation. Installing for the first time? Return to this original link after installing, then open it again.</p>' : ""}
 </div></article></main><footer><a href="/">About Mat Monkey</a></footer></body></html>`;
 }

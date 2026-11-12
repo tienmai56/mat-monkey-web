@@ -241,10 +241,10 @@ function Privacy() {
               </p>
               <p>
                 People you share with and the messaging services they use can receive invitation
-                summaries. The beta-download button takes you to Apple TestFlight; App Store links
-                take you to Apple. Those services handle your interactions under their own policies.
-                Contacting us by email also involves the email services used to deliver your
-                message.
+                summaries. The download button takes you to the Apple App Store; Apple handles that
+                interaction under its own policies. Those services handle your interactions under
+                their own policies. Contacting us by email also involves the email services used to
+                deliver your message.
               </p>
             </Section>
 
