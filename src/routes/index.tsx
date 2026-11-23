@@ -965,14 +965,6 @@ function FriendsSection() {
 
 const FAQ_ITEMS = [
   {
-    q: "What is Mat Monkey?",
-    a: "Mat Monkey is a BJJ app built around friendship. Plan sessions with the training partners you already roll with, set a focus for the session, remember it afterwards with a photo or a note, share goals and keep weekly friendship streaks.",
-  },
-  {
-    q: "When can I plan sessions with friends?",
-    a: "Planning with friends, shared goals and friendship streaks arrive in the next iOS update. The current version is available on the App Store today.",
-  },
-  {
     q: "Is it on Android?",
     a: "Not yet. Mat Monkey is iPhone only for now.",
   },
