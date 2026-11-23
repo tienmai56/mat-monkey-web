@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   ArrowRight,
   Camera,
@@ -8,6 +8,7 @@ import {
   Flame,
   Menu,
   NotebookPen,
+  Play,
   Plus,
   QrCode,
   Share2,
@@ -34,6 +35,8 @@ import {
 } from "@/components/home/brand";
 import { PhoneFrame, SessionTicket, TrainingScreen } from "@/components/home/phone";
 import photoGrapple from "@/assets/photos/grapple-match.jpg.asset.json";
+import promoPoster from "@/assets/mat-monkey-promo-poster.jpg.asset.json";
+import promoVideo from "@/assets/mat-monkey-promo-anime.mp4.asset.json";
 import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
 const TITLE = "Mat Monkey — More mat time. Better company.";
 const DESCRIPTION =
@@ -168,10 +171,6 @@ function Hero() {
               <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
           </div>
-          <p className="mt-4 max-w-md text-[13px] leading-snug text-ink-secondary">
-            Mat Monkey is on the App Store for iPhone. Planning with friends arrives in the next iOS
-            update.
-          </p>
         </div>
 
         <div className="relative mx-auto">
@@ -204,6 +203,75 @@ function Hero() {
                 label="Eight weeks in a row with Lena"
               />
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PromoVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const start = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.play()
+      .then(() => setPlaying(true))
+      .catch(() => setPlaying(false));
+  };
+
+  return (
+    <section id="watch" className="scroll-mt-16 bg-paper">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_auto] md:py-28">
+        <div className="min-w-0">
+          <Overline>Watch</Overline>
+          <h2 className="mt-3 max-w-[15ch] font-display text-[36px] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink sm:text-[52px]">
+            Sixty seconds on the mat.
+          </h2>
+          <p className="mt-5 max-w-[34rem] text-[17px] leading-[1.5] text-ink-secondary">
+            A quick look at Mat Monkey: plan a session with your crew, pick what you're working on,
+            log what landed, and keep the photos worth remembering.
+          </p>
+          <div className="mt-8">
+            <AppStoreButton />
+          </div>
+          <p className="mt-4 text-[13px] font-semibold text-ink-tertiary">60 seconds · sound on</p>
+        </div>
+
+        <div className="relative mx-auto w-[280px] sm:w-[320px]">
+          <div className="relative aspect-[9/16] overflow-hidden rounded-[28px] bg-ink shadow-float ring-1 ring-ink/10">
+            <video
+              ref={videoRef}
+              className="h-full w-full object-cover"
+              src={promoVideo.url}
+              poster={promoPoster.url}
+              playsInline
+              preload="none"
+              controls={playing}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onEnded={() => setPlaying(false)}
+              aria-label="Mat Monkey promo video: plan a training, share notes, one-tap log, crew activity and open mats"
+            />
+            {!playing && (
+              <button
+                type="button"
+                onClick={start}
+                aria-label="Play the Mat Monkey promo video"
+                className="absolute inset-0 grid place-items-center bg-ink/10 transition-colors hover:bg-ink/20"
+              >
+                <span className="btn-press grid h-20 w-20 place-items-center rounded-full bg-primary text-primary-foreground">
+                  <Play
+                    className="h-8 w-8 translate-x-[2px]"
+                    fill="currentColor"
+                    strokeWidth={0}
+                    aria-hidden
+                  />
+                </span>
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -764,6 +832,7 @@ function Landing() {
       <Nav />
       <main id="main">
         <Hero />
+        <PromoVideo />
         <HowItWorks />
         <GoalsSection />
         <FriendsSection />
