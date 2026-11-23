@@ -328,7 +328,7 @@ function HowItWorks() {
         <div className="max-w-2xl">
           <Overline>How it works</Overline>
           <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
-            Plan it. Roll it. Remember it.
+            Plan a training session with your friends
           </h2>
           <p className="mt-4 text-[17px] leading-[1.5] text-ink-secondary">
             Inviting someone to train should be as easy as inviting them to hang out.
@@ -444,7 +444,7 @@ function GoalsSection() {
         <div>
           <Overline>Focus and goals</Overline>
           <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
-            What are you chasing?
+            Keep your training notes and share it with your training partners
           </h2>
           <p className="mt-5 max-w-md text-[17px] leading-[1.5] text-ink-secondary">
             Name it. Bring it to the mat. Your goals become quick picks when you plan a session, so
