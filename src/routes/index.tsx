@@ -227,19 +227,85 @@ function PromoVideo() {
   };
 
   return (
-    <section id="watch" className="scroll-mt-16 bg-paper">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_auto] md:py-28">
+    <section id="watch" className="relative scroll-mt-16 overflow-hidden bg-ink text-paper">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-coral/25 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-sun-strong/20 blur-3xl"
+      />
+      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1fr_auto] md:gap-14 md:py-20">
         <div className="min-w-0">
-          <h2 className="max-w-[15ch] font-display text-[36px] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink sm:text-[52px]">
-            Watch how Mat Monkey works.
+          <h2 className="max-w-[14ch] font-display text-[38px] font-extrabold leading-[0.95] tracking-[-0.035em] text-paper sm:text-[56px] lg:text-[64px]">
+            Watch how Mat Monkey <span className="text-sun-strong">works.</span>
           </h2>
-          <div className="mt-8">
+          <p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-paper/80">
+            See a crew plan a session together, log it in one tap, and keep the rounds worth
+            remembering.
+          </p>
+          <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+            {(
+              [
+                { Icon: Users, label: "Plan together", tone: "bg-sun-strong text-ink" },
+                {
+                  Icon: CircleCheck,
+                  label: "Log in one tap",
+                  tone: "bg-primary text-primary-foreground",
+                },
+                { Icon: Camera, label: "Remember the rounds", tone: "bg-paper text-ink" },
+              ] as const
+            ).map(({ Icon, label, tone }) => (
+              <li
+                key={label}
+                className="flex items-center gap-3 rounded-[18px] bg-paper/10 p-3 ring-1 ring-paper/15"
+              >
+                <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-full ${tone}`}>
+                  <Icon className="h-5 w-5" aria-hidden />
+                </span>
+                <span className="font-display text-[16px] font-extrabold leading-tight tracking-[-0.015em] text-paper">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <AppStoreButton />
+            <span className="inline-flex items-center gap-2 text-[14px] font-semibold text-paper/75">
+              <Play
+                className="h-4 w-4 text-sun-strong"
+                fill="currentColor"
+                strokeWidth={0}
+                aria-hidden
+              />
+              60 seconds · sound on
+            </span>
           </div>
         </div>
 
-        <div className="relative mx-auto w-[280px] sm:w-[320px]">
-          <div className="relative aspect-[9/16] overflow-hidden rounded-[28px] bg-ink shadow-float ring-1 ring-ink/10">
+        <div className="relative mx-auto w-[260px] sm:w-[320px] lg:w-[340px]">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-5 -top-5 h-full w-full rounded-[32px] bg-sun-strong"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-[32px] bg-primary"
+          />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -left-4 top-24 z-10 rounded-full bg-paper px-3 py-1.5 font-display text-[13px] font-extrabold text-ink shadow-float motion-safe:animate-[float_4s_ease-in-out_infinite] sm:-left-10"
+          >
+            Saturday open mat
+          </span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -right-3 bottom-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1.5 font-display text-[13px] font-extrabold text-paper shadow-float ring-1 ring-paper/20 motion-safe:animate-[float_4s_ease-in-out_2s_infinite] sm:-right-8"
+          >
+            <Check className="h-3.5 w-3.5 text-sun-strong" aria-hidden /> 3 going
+          </span>
+          <div className="relative aspect-[9/16] overflow-hidden rounded-[28px] bg-ink shadow-float ring-4 ring-ink">
             <video
               ref={videoRef}
               className="h-full w-full object-cover"
