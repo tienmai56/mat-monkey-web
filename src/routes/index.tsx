@@ -380,9 +380,6 @@ function HowItWorks() {
           <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Plan a training session with your friends
           </h2>
-          <p className="mt-4 text-[17px] leading-[1.5] text-ink-secondary">
-            Inviting someone to train should be as easy as inviting them to hang out.
-          </p>
         </div>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
@@ -499,10 +496,6 @@ function QuickLogSection() {
           >
             Record your training with one log.
           </h2>
-          <p className="mt-4 text-[17px] leading-[1.5] text-ink-secondary">
-            The Mat Monkey widget sits on your Home Screen, so keeping a complete training history
-            takes one tap after class. No homework.
-          </p>
         </div>
 
         <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -745,18 +738,10 @@ function FriendsSection() {
   return (
     <section id="friends" className="scroll-mt-16 bg-paper-3">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-        <div className="grid gap-6 md:grid-cols-2 md:items-end">
-          <div>
-            <HeadlineMonkey className="mb-4" />
-            <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
-              Summon your crew.
-            </h2>
-          </div>
-          <p className="max-w-md text-[17px] leading-[1.5] text-ink-secondary md:justify-self-end">
-            Connect with training partners by QR code or username. Train together once in the same
-            week and your friendship streak grows by one belt segment.
-          </p>
-        </div>
+        <HeadlineMonkey className="mb-4" />
+        <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
+          Summon your crew.
+        </h2>
 
         <div className="mt-12 grid gap-5 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="rounded-[24px] bg-sun p-6 sm:p-7">
