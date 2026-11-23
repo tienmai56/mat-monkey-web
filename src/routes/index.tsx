@@ -489,7 +489,11 @@ function HowItWorks() {
 
 function OpenMatSection() {
   return (
-    <section id="open-mat" className="scroll-mt-16 bg-mint-tint" aria-labelledby="open-mat-title">
+    <section
+      id="open-mat"
+      className="scroll-mt-16 bg-linear-to-b from-paper via-paper via-55% to-coral-tint/45"
+      aria-labelledby="open-mat-title"
+    >
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
           <HeadlineMonkey className="mb-4" />
