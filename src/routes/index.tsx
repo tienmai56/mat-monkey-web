@@ -8,7 +8,6 @@ import {
   CircleCheck,
   Flame,
   Menu,
-  NotebookPen,
   LayoutGrid,
   Play,
   Plus,
@@ -39,7 +38,7 @@ import {
   type WeekState,
 } from "@/components/home/brand";
 import { PhoneFrame, SessionTicket, TrainingScreen } from "@/components/home/phone";
-import photoGrapple from "@/assets/photos/grapple-match.jpg.asset.json";
+import photoWomenRoll from "@/assets/photos/women-roll-gi.jpg.asset.json";
 import promoPoster from "@/assets/mat-monkey-promo-poster.jpg.asset.json";
 import promoVideo from "@/assets/mat-monkey-promo-anime.mp4.asset.json";
 import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
@@ -71,14 +70,6 @@ const NAV = [
   { href: "#friends", label: "Friends" },
   { href: "#faq", label: "FAQ" },
 ];
-
-function Overline({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return (
-    <p className={`text-[14px] font-bold tracking-[0.01em] text-coral-text ${className}`}>
-      {children}
-    </p>
-  );
-}
 
 function Nav() {
   const [open, setOpen] = useState(false);
@@ -391,8 +382,7 @@ function HowItWorks() {
     <section id="how" className="scroll-mt-16 bg-paper-2">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
-          <Overline>How it works</Overline>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
+          <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Plan a training session with your friends
           </h2>
           <p className="mt-4 text-[17px] leading-[1.5] text-ink-secondary">
@@ -478,12 +468,12 @@ function HowItWorks() {
               <div className="rotate-[-3deg] rounded-[8px] bg-card p-2.5 pb-4 shadow-float">
                 <div className="relative overflow-hidden rounded-[4px]">
                   <img
-                    src={photoGrapple.url}
+                    src={photoWomenRoll.url}
                     alt=""
                     className="aspect-[4/3] w-full object-cover"
                     loading="lazy"
-                    width={900}
-                    height={900}
+                    width={1536}
+                    height={1024}
                   />
                   <TapeLabel className="absolute left-2 top-2 text-[11px]" rotate={-4}>
                     Ironside BJJ
@@ -507,10 +497,9 @@ function QuickLogSection() {
     <section id="quick-log" className="scroll-mt-16 bg-paper-3" aria-labelledby="quick-log-title">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
-          <Overline>Quick log</Overline>
           <h2
             id="quick-log-title"
-            className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]"
+            className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]"
           >
             Record your training with one log.
           </h2>
@@ -632,8 +621,7 @@ function GoalsSection() {
     <section id="goals" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
-          <Overline>Focus and goals</Overline>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
+          <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Keep your training notes and share it with your training partners
           </h2>
           <p className="mt-5 max-w-md text-[17px] leading-[1.5] text-ink-secondary">
@@ -654,47 +642,9 @@ function GoalsSection() {
           </ul>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 sm:items-start">
+        <div className="mx-auto w-full max-w-md">
           <div
-            className="rounded-[24px] bg-paper-2 p-5"
-            role="img"
-            aria-label="Planning screen: What are we working on, with Knee cut picked from goals and two details"
-          >
-            <p className="flex items-center gap-2 font-display text-[17px] font-extrabold tracking-[-0.015em] text-ink">
-              <NotebookPen className="h-4 w-4" aria-hidden /> What are we working on?
-            </p>
-            <p className="mt-1 text-[13px] text-ink-secondary">
-              Pick from your goals, or add your own.
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              <Chip selected>Knee cut</Chip>
-              <Chip>
-                <Plus className="h-3.5 w-3.5" aria-hidden /> Single leg
-              </Chip>
-              <Chip>
-                <Plus className="h-3.5 w-3.5" aria-hidden /> RNC finish
-              </Chip>
-            </div>
-            <div className="mt-4 rounded-[22px] bg-card p-4 shadow-card">
-              <p className="font-display text-[16px] font-extrabold tracking-[-0.015em] text-ink">
-                Knee cut
-              </p>
-              <ul className="mt-2 space-y-2 text-[14px] text-ink">
-                {["Win the underhook first", "Pin the far hip before cutting"].map((d) => (
-                  <li key={d} className="flex items-center gap-2 rounded-[14px] bg-paper px-3 py-2">
-                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink-tertiary" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-3 flex items-center gap-1 text-[13px] font-semibold text-coral-text">
-                <Plus className="h-4 w-4" aria-hidden /> Add a detail
-              </p>
-            </div>
-          </div>
-
-          <div
-            className="rounded-[24px] bg-card p-5 shadow-card sm:mt-12"
+            className="rounded-[24px] bg-card p-6 shadow-card sm:p-7"
             role="img"
             aria-label="Goals screen on the Shared tab with two goals shared between friends"
           >
@@ -800,8 +750,7 @@ function FriendsSection() {
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="grid gap-6 md:grid-cols-2 md:items-end">
           <div>
-            <Overline>Friends and streaks</Overline>
-            <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
+            <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
               Summon your crew.
             </h2>
           </div>
@@ -935,8 +884,7 @@ function FAQ() {
     <section id="faq" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
-          <Overline>FAQ</Overline>
-          <h2 className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
+          <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Questions before the first round.
           </h2>
         </div>
