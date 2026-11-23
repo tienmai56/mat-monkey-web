@@ -236,7 +236,6 @@ function PromoVideo() {
           <div className="mt-8">
             <AppStoreButton />
           </div>
-          <p className="mt-4 text-[13px] font-semibold text-ink-tertiary">60 seconds · sound on</p>
         </div>
 
         <div className="relative mx-auto w-[280px] sm:w-[320px]">
@@ -489,7 +488,7 @@ function QuickLogSection() {
               n="02"
               Icon={Pointer}
               title="Log with one tap"
-              body="After a planned training, tap it in the widget to mark it complete. That's the log."
+              body="After a planned training, tap it in the widget to mark it complete."
             >
               <div className="w-full rounded-[22px] bg-paper-2 p-3" aria-hidden>
                 <div className="rounded-[20px] bg-card p-3 shadow-card">
@@ -576,18 +575,16 @@ function GoalsSection() {
             everyone walks in knowing what the rounds are for.
           </p>
           <ul className="mt-7 space-y-3 text-[15px] text-ink">
-            {[
-              "Big idea first, details underneath",
-              "Goals stay yours until you share them",
-              "Shared goals follow the owner's edits",
-            ].map((t) => (
-              <li key={t} className="flex items-start gap-3">
-                <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-mint-tint text-ink">
-                  <Check className="h-3.5 w-3.5" strokeWidth={2.75} aria-hidden />
-                </span>
-                {t}
-              </li>
-            ))}
+            {["Goals stay yours until you share them", "Shared goals follow the owner's edits"].map(
+              (t) => (
+                <li key={t} className="flex items-start gap-3">
+                  <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-mint-tint text-ink">
+                    <Check className="h-3.5 w-3.5" strokeWidth={2.75} aria-hidden />
+                  </span>
+                  {t}
+                </li>
+              ),
+            )}
           </ul>
         </div>
 
