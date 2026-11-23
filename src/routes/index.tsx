@@ -152,14 +152,13 @@ function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-10 sm:px-6 md:grid-cols-[1.05fr_1fr] md:pb-28 md:pt-16">
         <div className="min-w-0">
           <h1 className="font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[76px]">
-            More mat time.
+            Work on something.
             <br />
-            <span className="text-primary">Better company.</span>
+            <span className="text-primary">With someone.</span>
           </h1>
           <p className="mt-6 max-w-[34rem] text-[17px] leading-[1.5] text-ink-secondary sm:text-[19px]">
-            Plan sessions with the people you already train with, pick what you're working on, and
-            keep the good rounds with a photo or a note. Weekly friendship streaks keep the crew
-            showing up.
+            Plan a session with the people you already train with, set what you're working on, and
+            see who's going — including who's in for Saturday's open mat.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <AppStoreButton />
