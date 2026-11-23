@@ -37,6 +37,7 @@ import {
   Wordmark,
   type WeekState,
 } from "@/components/home/brand";
+import { HeadlineMonkey } from "@/components/home/monkey";
 import { PhoneFrame, SessionTicket, TrainingScreen } from "@/components/home/phone";
 import photoWomenRoll from "@/assets/photos/women-roll-gi.jpg.asset.json";
 import promoPoster from "@/assets/mat-monkey-promo-poster.jpg.asset.json";
@@ -147,6 +148,7 @@ function Hero() {
     <section id="top" className="overflow-hidden bg-paper-3">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-10 sm:px-6 md:grid-cols-[1.05fr_1fr] md:pb-28 md:pt-16">
         <div className="min-w-0">
+          <HeadlineMonkey className="mb-4" />
           <h1 className="font-display text-[32px] font-extrabold leading-[1.06] tracking-[-0.035em] text-ink sm:text-[42px] lg:text-[48px]">
             Keep your Jiu Jitsu
             <br />
@@ -229,6 +231,7 @@ function PromoVideo() {
       />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1fr_auto] md:gap-14 md:py-20">
         <div className="min-w-0">
+          <HeadlineMonkey tone="sun" className="mb-4" />
           <h2 className="max-w-[14ch] font-display text-[38px] font-extrabold leading-[0.95] tracking-[-0.035em] text-paper sm:text-[56px] lg:text-[64px]">
             Watch how Mat Monkey <span className="text-sun-strong">works.</span>
           </h2>
@@ -263,15 +266,6 @@ function PromoVideo() {
           </ul>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <AppStoreButton />
-            <span className="inline-flex items-center gap-2 text-[14px] font-semibold text-paper/75">
-              <Play
-                className="h-4 w-4 text-sun-strong"
-                fill="currentColor"
-                strokeWidth={0}
-                aria-hidden
-              />
-              60 seconds · sound on
-            </span>
           </div>
         </div>
 
@@ -382,6 +376,7 @@ function HowItWorks() {
     <section id="how" className="scroll-mt-16 bg-paper-2">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
+          <HeadlineMonkey className="mb-4" />
           <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Plan a training session with your friends
           </h2>
@@ -497,6 +492,7 @@ function QuickLogSection() {
     <section id="quick-log" className="scroll-mt-16 bg-paper-3" aria-labelledby="quick-log-title">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
+          <HeadlineMonkey className="mb-4" />
           <h2
             id="quick-log-title"
             className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]"
@@ -621,6 +617,7 @@ function GoalsSection() {
     <section id="goals" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
+          <HeadlineMonkey className="mb-4" />
           <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Keep your training notes and share it with your training partners
           </h2>
@@ -750,6 +747,7 @@ function FriendsSection() {
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="grid gap-6 md:grid-cols-2 md:items-end">
           <div>
+            <HeadlineMonkey className="mb-4" />
             <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
               Summon your crew.
             </h2>
@@ -884,6 +882,7 @@ function FAQ() {
     <section id="faq" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
+          <HeadlineMonkey className="mb-4" />
           <h2 className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]">
             Questions before the first round.
           </h2>
@@ -915,7 +914,8 @@ function ClosingCta() {
       <div className="mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-primary px-6 py-12 text-center sm:px-10 md:py-20 lg:px-16">
         <div className="mx-auto flex min-w-0 max-w-2xl flex-col items-center">
           <LogoMark size={56} mono />
-          <h2 className="mt-6 font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">
+          <HeadlineMonkey tone="sun" className="mb-4 mt-6" />
+          <h2 className="font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">
             Rolls are better with friends.
           </h2>
           <p className="mt-4 max-w-md text-[17px] leading-[1.5] text-ink">
