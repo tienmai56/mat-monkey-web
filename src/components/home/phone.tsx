@@ -246,7 +246,7 @@ export function TrainingScreen() {
           day="TUE"
           date="17"
           month="Nov"
-          title="No-gi rounds"
+          title="No gi rounds"
           time="18:30"
           gym="Northside Academy"
           hue="mint"

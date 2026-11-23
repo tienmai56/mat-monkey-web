@@ -40,7 +40,7 @@ import promoVideo from "@/assets/mat-monkey-promo-anime.mp4.asset.json";
 import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
 const TITLE = "Mat Monkey — More mat time. Better company.";
 const DESCRIPTION =
-  "Mat Monkey is the friendship-first BJJ app. Plan sessions with your training partners, set a focus, remember the rounds with a photo or a note, share goals and keep weekly friendship streaks.";
+  "Mat Monkey is the BJJ app built around friendship. Plan sessions with your training partners, set a focus, remember the rounds with a photo or a note, share goals and keep weekly friendship streaks.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -151,16 +151,16 @@ function Hero() {
     <section id="top" className="overflow-hidden bg-paper-3">
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-10 sm:px-6 md:grid-cols-[1.05fr_1fr] md:pb-28 md:pt-16">
         <div className="min-w-0">
-          <h1 className="font-display text-[48px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[64px] lg:text-[76px]">
-            Work on something.
+          <h1 className="font-display text-[32px] font-extrabold leading-[1.06] tracking-[-0.035em] text-ink sm:text-[42px] lg:text-[48px]">
+            Keep your Jiu Jitsu
             <br />
-            <span className="text-primary">With someone.</span>
+            training fun, social
+            <br />
+            and intentional.
+            <br />
+            <span className="text-primary">With friends.</span>
           </h1>
-          <p className="mt-6 max-w-[34rem] text-[17px] leading-[1.5] text-ink-secondary sm:text-[19px]">
-            Plan a session with the people you already train with, set what you're working on, and
-            see who's going — including who's in for Saturday's open mat.
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <AppStoreButton />
             <a
               href="#how"
@@ -252,7 +252,7 @@ function PromoVideo() {
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
               onEnded={() => setPlaying(false)}
-              aria-label="Mat Monkey promo video: plan a training, share notes, one-tap log, crew activity and open mats"
+              aria-label="Mat Monkey promo video: plan a training, share notes, quick log, crew activity and open mats"
             />
             {!playing && (
               <button
@@ -373,7 +373,7 @@ function HowItWorks() {
             n="02"
             Icon={Users}
             title="Friends join in"
-            body="Sessions open to anyone with the link show up in your friends' Activity, so they can join in a tap. Friends-only plans stay private."
+            body="Sessions open to anyone with the link show up in your friends' Activity, so they can join in a tap. Plans just for friends stay private."
           >
             <div className="w-full space-y-3" aria-hidden>
               <p className="font-display text-[15px] font-extrabold tracking-[-0.015em] text-ink">
@@ -447,8 +447,8 @@ function GoalsSection() {
             What are you chasing?
           </h2>
           <p className="mt-5 max-w-md text-[17px] leading-[1.5] text-ink-secondary">
-            Name it. Bring it to the mat. Your goals become one-tap picks when you plan a session,
-            so everyone walks in knowing what the rounds are for.
+            Name it. Bring it to the mat. Your goals become quick picks when you plan a session, so
+            everyone walks in knowing what the rounds are for.
           </p>
           <ul className="mt-7 space-y-3 text-[15px] text-ink">
             {[
@@ -618,8 +618,8 @@ function FriendsSection() {
             </h2>
           </div>
           <p className="max-w-md text-[17px] leading-[1.5] text-ink-secondary md:justify-self-end">
-            Connect with training partners by QR code or username. Train together once in a
-            Monday-to-Sunday week and your friendship streak grows by one belt segment.
+            Connect with training partners by QR code or username. Train together once in the same
+            week and your friendship streak grows by one belt segment.
           </p>
         </div>
 
@@ -714,7 +714,7 @@ function FriendsSection() {
 const FAQ_ITEMS = [
   {
     q: "What is Mat Monkey?",
-    a: "Mat Monkey is a friendship-first BJJ app. Plan sessions with the training partners you already roll with, set a focus for the session, remember it afterwards with a photo or a note, share goals and keep weekly friendship streaks.",
+    a: "Mat Monkey is a BJJ app built around friendship. Plan sessions with the training partners you already roll with, set a focus for the session, remember it afterwards with a photo or a note, share goals and keep weekly friendship streaks.",
   },
   {
     q: "When can I plan sessions with friends?",
@@ -730,7 +730,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Who can see my sessions?",
-    a: "You choose who's invited. Sessions open to anyone with the link appear in your friends' Activity so they can join. Friends-only sessions stay out of the feed.",
+    a: "You choose who's invited. Sessions open to anyone with the link appear in your friends' Activity so they can join. Sessions just for friends stay out of the feed.",
   },
   {
     q: "How do friendship streaks work?",
