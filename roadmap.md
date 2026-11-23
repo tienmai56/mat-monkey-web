@@ -7,3 +7,4 @@
 - [x] Remove How it works line "Inviting someone to train should be as easy as inviting them to hang out."
 - [x] Remove Quick log line "The Mat Monkey widget sits on your Home Screen... No homework."
 - [x] Remove second monkey (sun badge) from the closing "Rolls are better with friends." section
+- [x] Add open mat discovery section after How it works

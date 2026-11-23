@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import {
   Activity,
+  CalendarCheck,
+  ChevronDown,
+  MapPin,
   ArrowRight,
   Camera,
   Check,
@@ -45,7 +48,7 @@ import promoVideo from "@/assets/mat-monkey-promo-anime.mp4.asset.json";
 import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
 const TITLE = "Mat Monkey — More mat time. Better company.";
 const DESCRIPTION =
-  "Mat Monkey is the BJJ app built around friendship. Plan sessions with your training partners, log training with one tap from the widget, see your history in Activity, share goals and keep weekly friendship streaks.";
+  "Mat Monkey is the BJJ app built around friendship. Plan sessions with your training partners, see who's going to open mat nearby, log training with one tap from the widget, see your history in Activity, share goals and keep weekly friendship streaks.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -479,6 +482,139 @@ function HowItWorks() {
             </div>
           </StepCard>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function OpenMatSection() {
+  return (
+    <section id="open-mat" className="scroll-mt-16 bg-paper" aria-labelledby="open-mat-title">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+        <div className="max-w-2xl">
+          <HeadlineMonkey className="mb-4" />
+          <h2
+            id="open-mat-title"
+            className="font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]"
+          >
+            See who's going to open mat
+          </h2>
+          <p className="mt-5 max-w-xl text-[17px] leading-[1.55] text-ink-secondary">
+            Find open mats near you, spot the training partners already planning to go, and join
+            them in a tap.
+          </p>
+        </div>
+
+        <ol className="mt-12 grid gap-5 lg:grid-cols-3">
+          <li className="flex">
+            <StepCard
+              n="01"
+              Icon={MapPin}
+              title="See open mats in town"
+              body="Pick your town and browse the open mats coming up nearby."
+            >
+              <div className="w-full space-y-2.5 rounded-[22px] bg-paper-2 p-4" aria-hidden>
+                <div className="flex items-center justify-between rounded-[14px] bg-card px-3 py-2.5 shadow-card">
+                  <span className="flex items-center gap-2 text-[13px] font-semibold text-ink">
+                    <MapPin className="h-4 w-4 text-coral-text" aria-hidden /> Brooklyn, NY
+                  </span>
+                  <ChevronDown className="h-4 w-4 text-ink-tertiary" aria-hidden />
+                </div>
+                {[
+                  {
+                    day: "SAT",
+                    gym: "Ironside BJJ",
+                    meta: "Saturday open mat · 10:00",
+                    dist: "1.2 km",
+                    on: true,
+                  },
+                  {
+                    day: "SUN",
+                    gym: "Northside Academy",
+                    meta: "Sunday open mat · 11:00",
+                    dist: "3.4 km",
+                    on: false,
+                  },
+                ].map((m) => (
+                  <div
+                    key={m.gym}
+                    className={`flex items-center gap-3 rounded-[16px] p-2.5 ${
+                      m.on ? "bg-card shadow-card ring-2 ring-coral" : "bg-card/70"
+                    }`}
+                  >
+                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-[12px] bg-sun font-display text-[12px] font-extrabold text-ink">
+                      {m.day}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-[13px] font-bold text-ink">{m.gym}</span>
+                      <span className="block truncate text-[12px] text-ink-secondary">
+                        {m.meta}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-[12px] font-semibold text-ink-tertiary">
+                      {m.dist}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </StepCard>
+          </li>
+          <li className="flex">
+            <StepCard
+              n="02"
+              Icon={Users}
+              title="View who's going"
+              body="Open a session and see which familiar faces are already on the list."
+            >
+              <div className="w-full rounded-[22px] bg-paper-2 p-4" aria-hidden>
+                <p className="font-display text-[17px] font-extrabold tracking-[-0.015em] text-ink">
+                  Saturday open mat
+                </p>
+                <p className="text-[12px] text-ink-secondary">Ironside BJJ · 10:00 · 1.2 km</p>
+                <div className="mt-4 flex items-center gap-3">
+                  <AvatarStack
+                    size={36}
+                    people={[
+                      { initials: "LK", hue: "sun" },
+                      { initials: "SO", hue: "mint" },
+                      { initials: "PR", hue: "sky" },
+                      { initials: "JM", hue: "plum" },
+                    ]}
+                  />
+                  <span className="text-[13px] font-bold text-ink">4 friends going</span>
+                </div>
+                <p className="mt-3 text-[13px] leading-snug text-ink-secondary">
+                  Lena, Sam, Priya and Jo are in.
+                </p>
+              </div>
+            </StepCard>
+          </li>
+          <li className="flex">
+            <StepCard
+              n="03"
+              Icon={CircleCheck}
+              title="Join them"
+              body="One tap and you're on the list. The session lands in your Training tab."
+            >
+              <div className="w-full space-y-3" aria-hidden>
+                <div className="flex items-center justify-center gap-2 rounded-full bg-mint px-4 py-3 font-display text-[16px] font-extrabold text-ink">
+                  <Check className="h-5 w-5" strokeWidth={3} aria-hidden /> You're going
+                </div>
+                <div className="flex items-center gap-3 rounded-[16px] bg-card p-3 shadow-card">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-mint-tint text-ink">
+                    <CalendarCheck className="h-4 w-4" aria-hidden />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[13px] font-bold text-ink">Added to Training</span>
+                    <span className="block truncate text-[12px] text-ink-secondary">
+                      Upcoming · Sat 10:00, Ironside BJJ
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </StepCard>
+          </li>
+        </ol>
       </div>
     </section>
   );
@@ -953,6 +1089,7 @@ function Landing() {
         <Hero />
         <PromoVideo />
         <HowItWorks />
+        <OpenMatSection />
         <QuickLogSection />
         <GoalsSection />
         <FriendsSection />
