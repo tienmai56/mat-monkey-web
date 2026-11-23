@@ -499,10 +499,6 @@ function OpenMatSection() {
           >
             See who's going to open mat
           </h2>
-          <p className="mt-5 max-w-xl text-[17px] leading-[1.55] text-ink-secondary">
-            Find open mats near you, spot the training partners already planning to go, and join
-            them in a tap.
-          </p>
         </div>
 
         <ol className="mt-12 grid gap-5 lg:grid-cols-3">
