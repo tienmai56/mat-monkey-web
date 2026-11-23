@@ -230,14 +230,9 @@ function PromoVideo() {
     <section id="watch" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1fr_auto] md:py-28">
         <div className="min-w-0">
-          <Overline>Watch</Overline>
-          <h2 className="mt-3 max-w-[15ch] font-display text-[36px] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink sm:text-[52px]">
-            Sixty seconds on the mat.
+          <h2 className="max-w-[15ch] font-display text-[36px] font-extrabold leading-[0.95] tracking-[-0.035em] text-ink sm:text-[52px]">
+            Watch how Mat Monkey works.
           </h2>
-          <p className="mt-5 max-w-[34rem] text-[17px] leading-[1.5] text-ink-secondary">
-            A quick look at Mat Monkey: plan a session with your crew, pick what you're working on,
-            log what landed, and keep the photos worth remembering.
-          </p>
           <div className="mt-8">
             <AppStoreButton />
           </div>
