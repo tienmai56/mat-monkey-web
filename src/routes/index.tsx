@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import {
+  Activity,
   ArrowRight,
   Camera,
   Check,
@@ -8,12 +9,16 @@ import {
   Flame,
   Menu,
   NotebookPen,
+  LayoutGrid,
   Play,
   Plus,
   QrCode,
+  Search,
   Share2,
+  Tags,
   UserPlus,
   Users,
+  Pointer,
   X,
 } from "lucide-react";
 import {
@@ -40,7 +45,7 @@ import promoVideo from "@/assets/mat-monkey-promo-anime.mp4.asset.json";
 import { APP_LINK_ORIGIN as SITE } from "@/lib/app-links";
 const TITLE = "Mat Monkey — More mat time. Better company.";
 const DESCRIPTION =
-  "Mat Monkey is the BJJ app built around friendship. Plan sessions with your training partners, set a focus, remember the rounds with a photo or a note, share goals and keep weekly friendship streaks.";
+  "Mat Monkey is the BJJ app built around friendship. Plan sessions with your training partners, log training with one tap from the widget, see your history in Activity, share goals and keep weekly friendship streaks.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -432,6 +437,131 @@ function HowItWorks() {
             </div>
           </StepCard>
         </div>
+      </div>
+    </section>
+  );
+}
+
+function QuickLogSection() {
+  return (
+    <section id="quick-log" className="scroll-mt-16 bg-paper-3" aria-labelledby="quick-log-title">
+      <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
+        <div className="max-w-2xl">
+          <Overline>Quick log</Overline>
+          <h2
+            id="quick-log-title"
+            className="mt-3 font-display text-[36px] font-extrabold leading-none tracking-[-0.035em] text-ink sm:text-[52px]"
+          >
+            Record your training with one log.
+          </h2>
+          <p className="mt-4 text-[17px] leading-[1.5] text-ink-secondary">
+            The Mat Monkey widget sits on your Home Screen, so keeping a complete training history
+            takes one tap after class. No homework.
+          </p>
+        </div>
+
+        <ol className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <li className="flex">
+            <StepCard
+              n="01"
+              Icon={LayoutGrid}
+              title="Set up the widget"
+              body="Press and hold your iPhone Home Screen, tap the plus button, search for Mat Monkey and add the training widget."
+            >
+              <div className="w-full rounded-[22px] bg-ink p-3" aria-hidden>
+                <div className="flex items-center gap-2 rounded-full bg-paper/15 px-3 py-2 text-[12px] text-paper">
+                  <Search className="h-3.5 w-3.5" aria-hidden /> Mat Monkey
+                </div>
+                <div className="mt-3 grid grid-cols-4 gap-2">
+                  {["bg-sun", "bg-mint-tint", "bg-sky", "bg-plum"].map((c) => (
+                    <span key={c} className={`aspect-square rounded-[10px] ${c} opacity-80`} />
+                  ))}
+                </div>
+                <div className="mt-3 flex items-center justify-between rounded-[16px] bg-card p-2.5">
+                  <span className="flex items-center gap-2">
+                    <LogoMark size={24} />
+                    <span className="text-[12px] font-bold text-ink">Training</span>
+                  </span>
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-primary text-primary-foreground">
+                    <Plus className="h-4 w-4" strokeWidth={3} />
+                  </span>
+                </div>
+              </div>
+            </StepCard>
+          </li>
+          <li className="flex">
+            <StepCard
+              n="02"
+              Icon={Pointer}
+              title="Log with one tap"
+              body="After a planned training, tap it in the widget to mark it complete. That's the log."
+            >
+              <div className="w-full rounded-[22px] bg-paper-2 p-3" aria-hidden>
+                <div className="rounded-[20px] bg-card p-3 shadow-card">
+                  <div className="flex items-center gap-2">
+                    <LogoMark size={20} />
+                    <span className="text-[11px] font-bold uppercase tracking-wide text-ink-tertiary">
+                      Today
+                    </span>
+                  </div>
+                  <p className="mt-2 font-display text-[16px] font-extrabold leading-tight text-ink">
+                    Saturday open mat
+                  </p>
+                  <p className="text-[12px] text-ink-secondary">10:00 · Ironside BJJ</p>
+                  <span className="mt-3 flex items-center justify-center gap-1.5 rounded-full bg-primary py-2 text-[12px] font-bold text-primary-foreground">
+                    <Check className="h-3.5 w-3.5" strokeWidth={3} /> Completed
+                  </span>
+                </div>
+              </div>
+            </StepCard>
+          </li>
+          <li className="flex">
+            <StepCard
+              n="03"
+              Icon={Tags}
+              title="Add details if you like"
+              body="Optionally pick the techniques you hit. Skip it and the one tap log still counts."
+            >
+              <div className="w-full space-y-3 rounded-[22px] bg-paper-2 p-4" aria-hidden>
+                <p className="text-[12px] font-bold text-ink-secondary">Techniques (optional)</p>
+                <div className="flex flex-wrap gap-2">
+                  <Chip selected>Knee cut</Chip>
+                  <Chip>Armbar</Chip>
+                  <Chip selected>Scissor sweep</Chip>
+                  <Chip>Triangle</Chip>
+                </div>
+                <p className="text-[12px] font-semibold text-ink-tertiary">Skip for now</p>
+              </div>
+            </StepCard>
+          </li>
+          <li className="flex">
+            <StepCard
+              n="04"
+              Icon={Activity}
+              title="See your activity"
+              body="Completed sessions and any techniques show up in Activity, so your training history builds itself."
+            >
+              <ul className="w-full space-y-2" aria-hidden>
+                {[
+                  { d: "Sat", t: "Saturday open mat", x: "Knee cut, Scissor sweep" },
+                  { d: "Thu", t: "No gi rounds", x: "Logged" },
+                  { d: "Tue", t: "Fundamentals", x: "Armbar" },
+                ].map((r) => (
+                  <li key={r.d} className="flex items-center gap-3 rounded-[16px] bg-paper-2 p-2.5">
+                    <span className="grid h-9 w-9 shrink-0 place-items-center rounded-[12px] bg-coral-tint font-display text-[12px] font-extrabold text-coral-text">
+                      {r.d}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-[13px] font-bold text-ink">{r.t}</span>
+                      <span className="block truncate text-[12px] text-ink-secondary">{r.x}</span>
+                    </span>
+                    <CircleCheck className="ml-auto h-4 w-4 shrink-0 text-coral-text" />
+                  </li>
+                ))}
+              </ul>
+            </StepCard>
+          </li>
+        </ol>
       </div>
     </section>
   );
@@ -833,6 +963,7 @@ function Landing() {
         <Hero />
         <PromoVideo />
         <HowItWorks />
+        <QuickLogSection />
         <GoalsSection />
         <FriendsSection />
         <FAQ />
