@@ -6,3 +6,4 @@
 - [x] Remove Friends section line "Connect with training partners by QR code or username..."
 - [x] Remove How it works line "Inviting someone to train should be as easy as inviting them to hang out."
 - [x] Remove Quick log line "The Mat Monkey widget sits on your Home Screen... No homework."
+- [x] Remove second monkey (sun badge) from the closing "Rolls are better with friends." section

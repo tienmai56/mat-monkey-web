@@ -898,8 +898,7 @@ function ClosingCta() {
     <section id="get" className="scroll-mt-16 bg-paper px-4 pb-20 sm:px-6 md:pb-28">
       <div className="mx-auto max-w-6xl overflow-hidden rounded-[32px] bg-primary px-6 py-12 text-center sm:px-10 md:py-20 lg:px-16">
         <div className="mx-auto flex min-w-0 max-w-2xl flex-col items-center">
-          <LogoMark size={56} mono />
-          <HeadlineMonkey tone="sun" className="mb-4 mt-6" />
+          <LogoMark size={56} mono className="mb-6" />
           <h2 className="font-display text-[40px] font-extrabold leading-[0.95] tracking-[-0.04em] text-ink sm:text-[60px]">
             Rolls are better with friends.
           </h2>
