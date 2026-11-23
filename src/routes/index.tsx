@@ -992,7 +992,7 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section id="faq" className="scroll-mt-16 bg-coral-tint">
+    <section id="faq" className="scroll-mt-16 bg-paper">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <HeadlineMonkey className="mb-4" />
