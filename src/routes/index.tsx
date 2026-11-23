@@ -376,7 +376,7 @@ function Chip({ children, selected = false }: { children: React.ReactNode; selec
 
 function HowItWorks() {
   return (
-    <section id="how" className="scroll-mt-16 bg-paper-2">
+    <section id="how" className="scroll-mt-16 bg-paper">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
           <HeadlineMonkey className="mb-4" />
@@ -489,7 +489,7 @@ function HowItWorks() {
 
 function OpenMatSection() {
   return (
-    <section id="open-mat" className="scroll-mt-16 bg-paper" aria-labelledby="open-mat-title">
+    <section id="open-mat" className="scroll-mt-16 bg-mint-tint" aria-labelledby="open-mat-title">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
           <HeadlineMonkey className="mb-4" />
@@ -618,7 +618,7 @@ function OpenMatSection() {
 
 function QuickLogSection() {
   return (
-    <section id="quick-log" className="scroll-mt-16 bg-paper-3" aria-labelledby="quick-log-title">
+    <section id="quick-log" className="scroll-mt-16 bg-sun" aria-labelledby="quick-log-title">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
         <div className="max-w-2xl">
           <HeadlineMonkey className="mb-4" />
@@ -996,7 +996,7 @@ const FAQ_ITEMS = [
 
 function FAQ() {
   return (
-    <section id="faq" className="scroll-mt-16 bg-paper">
+    <section id="faq" className="scroll-mt-16 bg-coral-tint">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 md:py-28 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <HeadlineMonkey className="mb-4" />
